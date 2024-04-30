@@ -1,0 +1,196 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('Fonts/SF-Pro.ttf');
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Nav bar */
+.nav-bar {
+    padding: 30px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    font-size: 30px;
+    color: green;
+}
+
+.nav-bar .logo, .nav-bar .profile-button {
+    padding: 20px;
+    position: absolute; 
+}
+
+.nav-bar .logo {
+    left: 0; 
+}
+
+.nav-bar img {
+    max-height: 50px;
+    width: auto; 
+}
+
+.nav-bar .profile-button {
+    font-size: 18px;
+    right: 0; 
+}
+
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.nav-bar ul li {
+    padding-left: 20px;
+}
+
+.nav-bar ul li a{
+    transition: color 0.2s ease-in-out;
+}
+
+.book-link {
+    color: #6a6a6a; 
+}
+
+.host-link {
+    color: #000; 
+}
+
+.nav-bar ul li a:hover {
+    color: #000; 
+}
+
+
+/* Bar under Nav */
+.nav-bar::after {
+    content: '';
+    display: block;
+    height: 2px; 
+    background-color: #d1d1d1; 
+    position: absolute;
+    bottom: 0; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+/* Title input */
+.details-container{
+    margin-left: 50px;
+    width: 50vw;
+
+}
+.vl {
+    border-left: 1.2px solid #bbbaba;
+    height: 40px;
+}
+
+.search-container {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    padding-right: 0px;
+    max-height: 45px; 
+}
+
+.input-group {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    margin-right: 10px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 5px; 
+}
+
+.search-bar input {
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    border-radius: 30px; 
+}
+
+
+.search-bar select {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 30px;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    color: #666; 
+}
+
+.search-bar option {
+    background: white; 
+    color: black; 
+}
+
+.search-bar select option[value=""] {
+    color: grey; 
+}
+
+.search-bar select:active{
+    color: #000;
+}
+
+/* Description */
+.description-container .input-group{
+    background: #f0f0f0;
+    border: none;
+    border-radius: 25px;
+    height: 500px;
+    padding: 25px;
+}
+
+.description-container input{
+    height: 500px;
+    background-color: transparent;
+    border: none;
+}

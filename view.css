@@ -1,0 +1,332 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('Fonts/SF-Pro.ttf');
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Nav bar */
+.nav-bar {
+    padding: 30px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    font-size: 30px;
+}
+
+.nav-bar .logo, .nav-bar .profile-button {
+    padding: 20px;
+    position: absolute; 
+}
+
+.nav-bar .logo {
+    left: 0; 
+}
+
+.nav-bar img {
+    max-height: 50px;
+    width: auto; 
+}
+
+.nav-bar .profile-button {
+    font-size: 18px;
+    right: 0; 
+}
+
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.nav-bar ul li {
+    padding-left: 20px;
+}
+
+.nav-bar ul li a{
+    transition: color 0.2s ease-in-out;
+}
+
+.book-link {
+    color: #000; 
+}
+
+.host-link {
+    color: #6a6a6a; 
+}
+
+.nav-bar ul li a:hover {
+    color: #000; 
+}
+
+
+/* Bar under Nav */
+.nav-bar::after {
+    content: '';
+    display: block;
+    height: 2px; 
+    background-color: #d1d1d1; 
+    position: absolute;
+    bottom: 0; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+.content{
+    margin: 50px;
+}
+
+.content .title{
+    font-size: 54px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.content .reviews .reviews-link{
+    text-decoration: underline;
+    margin-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.content .reviews .reviews-link:hover{
+    color: #ff395c;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    font-size: 24px;
+    color: #000; 
+    margin-right: 20px;
+  }
+
+.profile-text{
+    color: #000;
+}
+
+.host-name{
+    color:#000;
+}
+
+.profile .years-hosting{
+    color: #737373;
+}
+
+.content .description{
+    margin-top: 16px;
+    max-width: 40vw;
+}
+
+/*Gallery*/
+
+.gallery-container {
+    max-width: 40vw; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.main-image img {
+    width: 100%; 
+    border-radius: 25px; 
+    margin-bottom: 20px; 
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+}
+
+.thumbnail {
+    width: calc(35% - 25px); 
+    margin: 10px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: all 0.2s ease-in-out;
+}
+
+.thumbnail:hover{
+    transform: scale(1.1);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description-container, .gallery-container {
+    flex: 1;
+    margin: 20px;
+}
+
+.content .description {
+    max-width: 40vw;
+}
+
+.content {
+    min-height: 100%;
+    padding-bottom: 60px; 
+    box-sizing: border-box; 
+}
+
+/* Footer */
+.footer::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #d1d1d1;
+    position: absolute;
+    bottom: 60px; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+
+.footer {
+    height: 60px; 
+    width: 100%;
+    position: fixed; 
+    bottom: 0;
+    left: 0px;
+    background-color: #f4f4f4; 
+    color: #000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.footer .price{
+    padding-left: 50px;
+    font-size: 22px;
+}
+
+.button-container {
+    padding-right: 50px;
+    display: flex;
+    gap: 35px;
+    height: 40px;
+    width: auto;
+}
+  
+.button-container button{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+}
+
+.button-container .cancel{
+    background-color: #787878;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-container .book{
+    background-color: #ff395c;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-container .book:hover{
+    cursor: pointer;
+    background-color: #e05169;
+}
+
+.button-container .cancel:hover{
+    cursor: pointer;
+    background-color: #6a6a6a;
+}
+
+/* Reviews */
+#reviews-header{
+    margin: 50px;
+    font-size: 24px;
+}
+
+.reviews-container {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin: 50px;
+    overflow-y: hidden;
+}
+
+.reviews-container::-webkit-scrollbar{
+    display: none;
+}
+
+.review {
+    flex: 0 0 auto; /* Prevent flex items from growing */
+    max-width: 350px;
+    max-height: 200px;
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    /* Neumorphic styling */
+    border-radius: 25px;
+    padding: 25px;
+    outline: none;
+    border: none;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 
+    5px 5px 9px rgba(94,104,121,0.3);
+}
+
+.reviews-container .content{
+    margin: 0px;
+}
+
+.author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* amenities */
+.amenities{
+    height: 100px;
+}
