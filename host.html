@@ -21,37 +21,59 @@
         </div>
     </div>
 
-    <div class="details-container">
-        <div class="title">
-            <form action="" class="search-bar">
-                <div class="input-group">
-                    <label>Where</label>
-                    <input type="text" placeholder="Enter Address" name="search">
-                </div>
+    <div class="content">
+        <div class="details-container">
+            <div class="title">
+                <form action="" class="search-bar">
+                    <div class="input-group">
+                        <label>Where</label>
+                        <input type="text" placeholder="Enter Address" name="search">
+                    </div>
 
-                <div class="vl"></div>
+                    <div class="vl"></div>
 
-                <div class="input-group">
-                    <label>What</label>
-                    <select name="type" placeholder="Choose Facility Type">
-                        <option value="">Choose Facility Type</option>
-                        <option value="Bakery Kitchen">Bakery Kitchen</option>
-                        <option value="Ice Cream Parlor">Ice Cream Parlor</option>
-                        <option value="Pizzeria Kitchen">Pizzeria Kitchen</option>
-                        <option value="Restaurant Kitchen">Restaurant Kitchen</option>
-                        <option value="Catering Kitchen">Catering Kitchen</option>
-                        <option value="Fast Food Kitchen">Fast Food Kitchen</option>
-                    </select>
-                </div>            
+                    <div class="input-group">
+                        <label>What</label>
+                        <select name="type" id="facility-type" placeholder="Choose Facility Type">
+                            <option value="">Choose Facility Type</option>
+                            <option value="Bakery Kitchen">Bakery Kitchen</option>
+                            <option value="Ice Cream Parlor">Ice Cream Parlor</option>
+                            <option value="Pizzeria Kitchen">Pizzeria Kitchen</option>
+                            <option value="Restaurant Kitchen">Restaurant Kitchen</option>
+                            <option value="Catering Kitchen">Catering Kitchen</option>
+                            <option value="Fast Food Kitchen">Fast Food Kitchen</option>
+                        </select>                        
+                    </div>            
+            </div>
+
+            <div class="description-container">
+                <form action="" class="description">
+                    <div class="input-group">
+                        <label>Description</label>
+                        <input type="text" name="description">
+                    </div>
+            </div>
         </div>
-        <div class="description-container">
-            <form action="" class="description">
-                <div class="input-group">
-                    <label>Make it Pop</label>
-                    <input type="text" placeholder="Enter Short Description" name="description">
-                </div>
+
+        <div class="gallery-container">
+            <div class="main-image">
+                <img src="Images/grey.jpeg" class="mainImage" alt="Main Image">
+            </div>
+            <div class="thumbnail-container">
+                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
+                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
+                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
+            </div>
         </div>
     </div>
 
+    <div class="footer">
+        <p class="price">Saved as Draft</p>
+        <div class="button-container">
+            <button class="cancel">Cancel</button>
+            <button class="host">Next</button>
+        </div>
+    </div>
+    <script src="host.js"></script>
 </body>
 </html>

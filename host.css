@@ -101,10 +101,10 @@ a {
 }
 
 /* Title input */
+
 .details-container{
     margin-left: 50px;
     width: 50vw;
-
 }
 .vl {
     border-left: 1.2px solid #bbbaba;
@@ -129,6 +129,7 @@ a {
     padding: 10px 20px;
     padding-right: 0px;
     max-height: 45px; 
+    max-width: 690px;
 }
 
 .input-group {
@@ -146,6 +147,11 @@ a {
     margin-bottom: 5px; 
 }
 
+.input-group input {
+    text-align: left;
+    height: auto;
+}
+
 .search-bar input {
     background: transparent;
     border: 0;
@@ -153,7 +159,6 @@ a {
     font-size: 14px;
     border-radius: 30px; 
 }
-
 
 .search-bar select {
     background: transparent;
@@ -181,16 +186,145 @@ a {
 }
 
 /* Description */
-.description-container .input-group{
+.description-container .input-group {
     background: #f0f0f0;
     border: none;
     border-radius: 25px;
-    height: 500px;
     padding: 25px;
+    height: 500px;
 }
 
-.description-container input{
-    height: 500px;
+.description-container input {
     background-color: transparent;
     border: none;
+    height: auto;
+    max-width: inherit;
+    height: 500px;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+/*Gallery*/
+
+.gallery-container {
+    max-width: 40vw; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image img {
+    width: 100%; 
+    border-radius: 25px; 
+    margin-bottom: 20px; 
+    min-height: 400px;
+    transition: all 0.2s ease-in-out;
+}
+
+.main-image img:hover{
+    transform: scale(1.01);
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: space-around; 
+    width: 100%;
+    min-height: 150px;
+}
+
+.thumbnail {
+    width: calc(35% - 25px); 
+    margin: 10px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: all 0.2s ease-in-out;
+}
+
+.thumbnail:hover{
+    transform: scale(1.05);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description-container, .gallery-container {
+    flex: 1;
+    margin: 20px;
+    margin-right: 50px;
+}
+
+
+
+.footer::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #d1d1d1;
+    position: absolute;
+    bottom: 60px; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+
+.footer {
+    height: 60px; 
+    width: 100%;
+    position: fixed; 
+    bottom: 0;
+    left: 0px;
+    color: #000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.footer .price{
+    padding-left: 50px;
+    font-size: 22px;
+}
+
+.button-container {
+    padding-right: 50px;
+    display: flex;
+    gap: 35px;
+    height: 40px;
+    width: auto;
+}
+  
+.button-container button{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+}
+
+.button-container .cancel{
+    background-color: #787878;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-container .host{
+    background-color: #ff395c;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-container .host:hover{
+    cursor: pointer;
+    background-color: #e05169;
+}
+
+.button-container .cancel:hover{
+    cursor: pointer;
+    background-color: #6a6a6a;
 }
