@@ -1,4 +1,3 @@
-// Array of names
 const names = [
   "Baljot Toor", "Harry Chhay", "Aaron Mendonca",
   "Krishant Maharaj", "Caleb Simmons", "Chuanze Zhao"
@@ -22,7 +21,7 @@ function changeKitchenType() {
 }
 
 function updateImages(kitchenType) {
-  const formattedType = kitchenType.replace(/ /g, '_'); // Replace spaces with underscores
+  const formattedType = kitchenType.replace(/ /g, '_'); 
   const images = document.querySelectorAll('.thumbnail');
   images.forEach((img, index) => {
     img.src = `Images/Facilities/${formattedType}/${index + 1}.jpeg`;
@@ -42,14 +41,29 @@ function getRandomRating() {
 function getRandomReviews() {
   return (Math.floor(Math.random() * 301));
 }
+function updateImages(kitchenType) {
+  const formattedType = kitchenType.replace(/ /g, '_'); 
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  thumbnails.forEach((thumbnail, index) => {
+    const newPath = `Images/Facilities/${formattedType}/${index + 1}.jpeg`;
+    thumbnail.src = newPath;
+    thumbnail.alt = `Image of ${formattedType} ${index + 1}`;
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
+  const prevMonthBtn = document.getElementById('prevMonth');
+  const nextMonthBtn = document.getElementById('nextMonth');
   const profileIcon = document.querySelector('.profile-icon');
   const hostName = document.querySelector('.host-name');
   const yearsHostingSpan = document.querySelector('.years-hosting');
-  const reviews = document.querySelector('.reviews');
-  const reviewsLink = document.querySelector('.reviews-link');
   const reviewsContainer = document.querySelector('.reviews-container');
+
+  changeKitchenType();
+  renderCalendar(currentMonth, currentYear);
+
+  prevMonthBtn.onclick = () => changeMonth(-1);
+  nextMonthBtn.onclick = () => changeMonth(1);
 
   fetch('Data/reviews.json')
     .then(response => response.json())
@@ -61,15 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const yearsHosting = Math.floor(Math.random() * 7) + 1;
       yearsHostingSpan.textContent = yearsHosting + (yearsHosting === 1 ? " Year Hosting" : " Years Hosting");
       
-      let totalRating = getRandomRating(); // Initialize total rating
-      let totalReviews = getRandomReviews(); // Initialize total reviews count
+      let totalRating = getRandomRating(); 
+      let totalReviews = getRandomReviews();
 
 
-      // Generate 30 different review cards
       for (let i = 0; i < 30; i++) {
         const randomReviewData = getRandomElement(reviewsData);
         const { profilePhoto, name, reviewText } = randomReviewData;
-        const reviewRating = getRandomRating(); // Generate random rating
+        const reviewRating = getRandomRating(); 
 
         const review = document.createElement('div');
         review.classList.add('review');
@@ -99,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewsContainer.appendChild(review);
       }
 
-      reviews.firstChild.textContent = `★ ${totalRating}`; // Set the average rating
-      reviewsLink.textContent = `${totalReviews} Reviews`; // Update link text with total reviews count
+      reviews.firstChild.textContent = `★ ${totalRating}`; 
+      reviewsLink.textContent = `${totalReviews} Reviews`; 
     })
     .catch(error => {
       console.error('Error fetching reviews:', error);
@@ -108,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getRandomRating() {
-  return (Math.random() * 4 + 1).toFixed(1); // Generate random rating between 1 and 5
+  return (Math.random() * 4 + 1).toFixed(1); 
 }
 
 
