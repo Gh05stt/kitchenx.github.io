@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="book.css">
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
     <link rel="stylesheet" href="splash.css">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="splash-screen">
@@ -39,7 +40,17 @@
             <div class="vl"></div>
             <div class="input-group">
                 <label>When</label>
-                <input type="text" placeholder="Add Dates" name="dates">
+                <input type="text" placeholder="Add Dates" name="dates" id="dates-input" readonly>
+                    <div class="calendar-container" style="display: none;">
+                        <div class="datepicker-container">
+                            <div class="controls">
+                                <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                                <span id="monthYear"></span>
+                                <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                            <div id="datepicker" class="calendar"></div>
+                        </div>
+                    </div>
             </div>
             <div class="vl"></div>
 
