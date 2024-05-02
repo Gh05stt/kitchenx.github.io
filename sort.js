@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (this.value === 'relevance') {
             items.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
+        } else if (this.value === 'highest-review') {
+            items.sort((a, b) => {
+                let ratingA = parseFloat(a.querySelector('.item-rating').textContent);
+                let ratingB = parseFloat(b.querySelector('.item-rating').textContent);
+                return ratingB - ratingA;
+            });
+        } else if (this.value === 'lowest-review') {
+            items.sort((a, b) => {
+                let ratingA = parseFloat(a.querySelector('.item-rating').textContent);
+                let ratingB = parseFloat(b.querySelector('.item-rating').textContent);
+                return ratingA - ratingB;
+            });
         } else {
             items.sort((a, b) => {
                 let priceA = parseInt(a.querySelector('.item-price').textContent.replace(/\D/g, ''));
