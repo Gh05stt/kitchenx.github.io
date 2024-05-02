@@ -72,11 +72,14 @@
 
       <div class="filter-by">
         <p>Sort by:</p>
-        <select name="type" placeholder="Price">
-            <option value="Price: Low to High">Price: Low to High</option>
-            <option value="Price: High to Low">Price: High to Low</option>
+        <select name="sortPrice" id="sortPrice">
+            <option value="relevance">Relevance</option>
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
         </select>
       </div>
+    
+      <script src="sort.js"></script>
         <div id="item-container">
         </div>
 
