@@ -289,8 +289,8 @@ a {
 
 .reviews-container {
     display: flex;
-    overflow-x: auto; /* Allow horizontal scrolling */
-    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; 
+    flex-wrap: nowrap; 
     margin: 50px;
     overflow-y: hidden;
 }
@@ -300,13 +300,12 @@ a {
 }
 
 .review {
-    flex: 0 0 auto; /* Prevent flex items from growing */
+    flex: 0 0 auto; 
     max-width: 350px;
     max-height: 200px;
     width: calc(33.33% - 20px);
     margin-right: 20px;
     margin-bottom: 20px;
-    /* Neumorphic styling */
     border-radius: 25px;
     padding: 25px;
     outline: none;
@@ -326,7 +325,94 @@ a {
     object-fit: cover;
 }
 
-/* amenities */
+.details-container{
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Calendar */
+.calendar-container{
+    font-size: 18px;
+}
+
+.calendar-container p{
+    margin-bottom: 30px;
+}
+
+.datepicker-container {
+    box-shadow: 5px 5px 9px rgba(94,104,121,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.calendar div {
+    padding: 10px;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.05), 
+    inset 1px 1px 3px rgba(94,104,121,0.15); 
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar div:hover {
+    background-color: #e0e0e0;
+}
+
+.calendar div.selected {
+    background-color: #9ecaed;
+    color: white;
+}
+
+.calendar div.range {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.start,
+.calendar div.end {
+    background-color: #ff395c;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.calendar div.today {
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.calendar div.today.start,
+.calendar div.today.end {
+    border: none;
+    background-color: #ff395c; 
+    color: white;
+}
+
+/*Amenities*/
 .amenities{
-    height: 100px;
+    height: auto;
+    left: 0;
 }

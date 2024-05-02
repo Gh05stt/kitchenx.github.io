@@ -6,6 +6,7 @@
     <title>KitchenX</title>
     <link rel="stylesheet" href="view.css">
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="nav-bar">
@@ -56,14 +57,35 @@
             </div>
         </div>
     </div>
+
+    <div class="details-container">
+        <div class="calendar-container">
+            <div class="calendar-text">
+                <p>Choose your Dates</p>
+            </div>
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+            </div>
+            <script src="datepicker.js"></script>
+        </div>
+
+        <div class="amenities">
+            <li>Industrial Mixer</li>
+            <li>Oven</li>
+            <li>Steamer</li>
+            <li>Walk-in Fridge</li>
+            <li>Heated Display Cabinets</li>
+        </div>
+    </div>
+
     <p id="reviews-header">Reviews</p>
     <div class="reviews-container">
     </div>
-
-    <div class="amenities">
-        
-    </div>
-    
     <div class="footer">
         <p class="price">$1,900 daily</p>
         <div class="button-container">
@@ -72,6 +94,6 @@
         </div>
     </div>
     
-    <script src="view.js"></script>
+    <script src="view.js"></script> 
 </body>
 </html>
