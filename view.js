@@ -1,4 +1,5 @@
 // Array of names
+console.log("Loaded");
 const names = [
   "Baljot Toor", "Harry Chhay", "Aaron Mendonca",
   "Krishant Maharaj", "Caleb Simmons", "Chuanze Zhao"
