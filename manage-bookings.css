@@ -1,0 +1,200 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('Fonts/SF-Pro.ttf');
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Nav bar */
+.nav-bar {
+    padding: 30px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+    font-size: 30px;
+}
+
+.nav-bar .logo, .nav-bar .profile-button {
+    padding: 20px;
+    position: absolute; 
+}
+
+.nav-bar .logo {
+    left: 0; 
+}
+
+.nav-bar img {
+    max-height: 50px;
+    width: auto; 
+}
+
+.nav-bar .profile-button {
+    font-size: 18px;
+    right: 0; 
+}
+
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+}
+
+.nav-bar ul li {
+    padding-left: 20px;
+}
+
+.nav-bar ul li a{
+    transition: color 0.2s ease-in-out;
+}
+
+.book-link {
+    color: #000; 
+}
+
+.host-link {
+    color: #6a6a6a; 
+}
+
+.nav-bar ul li a:hover {
+    color: #000; 
+}
+
+
+/* Bar under Nav */
+.nav-bar::after {
+    content: '';
+    display: block;
+    height: 2px; 
+    background-color: #d1d1d1; 
+    position: absolute;
+    bottom: 0; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+/* Profile Drop Down */
+.profile-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999; 
+}
+
+.profile-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 85vw;
+    width: 100%;
+    display: none;
+    z-index: 998; 
+    display: none; 
+}
+
+.profile-wrapper.show {
+    display: block; 
+}
+
+.profile-container{
+    border: #000;
+    background: #fff;
+    box-shadow: 3px 3px 9px rgba(37, 37, 37, .25);
+    border-radius: 20px;
+    width: 200px;
+}
+
+.profile-container li{
+    position: relative;
+    font-size: 18px;
+    padding: 12px;
+    padding-left: 15px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.profile-container li a{
+    transition: all 0.1s ease-in-out;
+}
+
+.profile-container li a:hover{
+    color: #ff6e86;
+    text-decoration: underline;
+}
+
+.profile-container li span{
+    margin-top: 20px;
+}
+
+.profile-container ul{
+    padding: 0;
+}
+
+#logout{
+    margin-top: 40px;
+}
+
+/* Content */
+
+.footer{
+    position: relative;
+    background-color: #fff;
+    height: 100px;
+    width: 100%;
+    display: none;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.footer a{
+    margin-top: 65px;
+    padding-left: 50px;
+    font-size: 14px;
+}
+
+.footer a span{
+    padding-top: 20px;
+    text-decoration: underline;
+    transition: all 0.1s ease-in-out;
+}
+
+.footer::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #d1d1d1;
+    position: absolute;
+    bottom: 60px; 
+    left: 50px; 
+    right: 50px; 
+    border-radius: 25px;
+}
+
+.footer a span:hover{
+    color: #ff6e86;
+}

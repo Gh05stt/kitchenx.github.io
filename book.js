@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function createItem(name, type, rating, price) {
         const item = document.createElement('div');
-        const randomImageNumber = Math.floor(Math.random() * 4) + 1;
+        const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         item.className = 'item';
         item.innerHTML = `
             <div class="image-placeholder" id="transition" style="background-image: url('Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div>
@@ -79,14 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
       displayItems(typeSelect.value.replace(/ /g, "_"), searchInput.value);
   });
   
-  searchInput.addEventListener('input', () => {
-      displayItems(typeSelect.value.replace(/ /g, "_"), searchInput.value);
-  });
+    const searchForm = document.querySelector('.search-bar');
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const selectedType = typeSelect.value.replace(/ /g, "_");
+        const searchTerm = searchInput.value;
+        displayItems(selectedType, searchTerm);
+    });
   });
   
   
   function getRandomRating() {
-    return (Math.random() * (5 - 2) + 2).toFixed(1);
+    return (Math.random() * (5 - 1) + 1).toFixed(1);
   }
   
   function getRandomPrice() {

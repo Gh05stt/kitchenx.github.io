@@ -411,8 +411,61 @@ button {
     color: white;
 }
 
-/*Amenities*/
-.amenities{
-    height: auto;
-    left: 0;
+/* Profile Drop Down */
+.profile-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999; 
+}
+
+.profile-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 85vw;
+    width: 100%;
+    display: none;
+    z-index: 998; 
+}
+
+.profile-wrapper.show {
+    display: block; 
+}
+
+.profile-container{
+    border: #000;
+    background: #fff;
+    box-shadow: 3px 3px 9px rgba(37, 37, 37, .25);
+    border-radius: 20px;
+    width: 200px;
+}
+
+.profile-container li{
+    position: relative;
+    font-size: 18px;
+    padding: 12px;
+    padding-left: 15px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.profile-container li a{
+    transition: all 0.1s ease-in-out;
+}
+
+.profile-container li a:hover{
+    color: #ff6e86;
+    text-decoration: underline;
+}
+
+.profile-container li span{
+    margin-top: 20px;
+}
+
+.profile-container ul{
+    padding: 0;
+}
+
+#logout{
+    margin-top: 40px;
 }

@@ -18,7 +18,6 @@
     </div>
     <script src="splash.js"></script>
 
-
     <div class="nav-bar">
         <div class="logo">
             <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
@@ -28,9 +27,20 @@
             <li><a href="host.html" class="host-link" id="transition">Host</a></li>
         </ul>
         <div class="profile-button">
-            <a href="#">Profile</a>
+            <a href="#" id="profileBtn">Profile</a>
         </div>
     </div>
+    <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-container">
+            <ul>
+                <li><a href="404.html">Messages</a></li>
+                <li><a href="manage-bookings.html">Bookings</a></li>
+                <li><a href="#">Manage Profile</a></li>
+                <li id="logout"><a href="logout.html">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
     <div class="search-container">
         <form action="" class="search-bar">
             <div class="input-group">
@@ -90,5 +100,6 @@
     </div>
         
         <script src="book.js"></script>
+        <script src="profile-container.js"></script>
 </body>
 </html>

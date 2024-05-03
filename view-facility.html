@@ -14,11 +14,21 @@
             <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
         </div>
         <ul>
-            <li><a href="index.html" class="book-link">Book</a></li>
-            <li><a href="host.html" class="host-link">Host</a></li>
+            <li><a href="index.html" class="book-link" id="transition">Book</a></li>
+            <li><a href="host.html" class="host-link" id="transition">Host</a></li>
         </ul>
         <div class="profile-button">
-            <a href="#">Profile</a>
+            <a href="#" id="profileBtn">Profile</a>
+        </div>
+    </div>
+    <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-container">
+            <ul>
+                <li><a href="404.html">Messages</a></li>
+                <li><a href="manage-bookings.html">Bookings</a></li>
+                <li><a href="#">Manage Profile</a></li>
+                <li id="logout"><a href="logout.html">Log Out</a></li>
+            </ul>
         </div>
     </div>
 
@@ -72,14 +82,6 @@
                 <div id="datepicker" class="calendar"></div>
             </div>
         </div>
-
-        <div class="amenities">
-            <li>Industrial Mixer</li>
-            <li>Oven</li>
-            <li>Steamer</li>
-            <li>Walk-in Fridge</li>
-            <li>Heated Display Cabinets</li>
-        </div>
     </div>
 
     <p id="reviews-header">Reviews</p>
@@ -94,5 +96,6 @@
     </div>
     
     <script src="view.js"></script> 
+    <script src="profile-container.js"></script>
 </body>
 </html>
