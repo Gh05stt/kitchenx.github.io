@@ -1,3 +1,14 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('Fonts/SF-Pro.ttf');
+}
+
+html{    
+    font-family: 'SF', sans-serif;
+}
 
 /* 404 Screen */
 #error-screen {
@@ -28,7 +39,17 @@
     font-weight: 300;
 }
 
+
 .contact{
     color: #ff6e86;
     text-decoration: underline;
+}
+
+.contact button{
+    font-family: 'SF', sans-serif;
+    font-size: 16px;
+    color: #ff6e86;
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
 }

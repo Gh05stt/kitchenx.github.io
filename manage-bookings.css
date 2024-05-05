@@ -161,6 +161,81 @@ a {
 
 /* Content */
 
+/*Property Header */
+.property-header{
+    margin-left: 50px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+/* Property List */
+.property-wrapper{
+    margin: 40px;
+    margin-top: 20px;
+}
+
+
+.property-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.property-details {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.manage-property {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    list-style: none;
+    font-size: 18px;
+}
+
+.manage-property li:nth-child(1) {
+    margin-bottom: 30px;
+}
+
+.manage-property li:nth-child(2) {
+    margin-top: auto;
+    margin-bottom: auto; 
+}
+
+.manage-property li:nth-child(3) {
+    margin-top: 30px;
+}
+
+
+.property-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 9px rgba(37, 37, 37, .25);
+    overflow: hidden;
+    padding: 10px; 
+}
+
+.property-item img {
+    height: 150px;  
+    width: 150px;   
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.property-description {
+    flex-grow: 1; 
+    padding: 10px;
+}
+
+/* Footer */
 .footer{
     position: relative;
     background-color: #fff;
@@ -197,4 +272,114 @@ a {
 
 .footer a span:hover{
     color: #ff6e86;
+}
+
+
+/* Tool Tips */
+/* Edit */
+.edit-btn {
+    position: relative;
+    display: inline-block;
+}
+  
+.edit-btn .edit-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.edit-btn:hover .edit-tip{
+    visibility: visible;
+    opacity: 1;
+}
+  
+/* Message */
+.manage-property a {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.manage-property a:hover {
+    text-decoration: underline;
+    color: #6f6f6f;  
+}
+
+.message-btn {
+    position: relative;
+    display: inline-block;
+}
+  
+.message-btn .message-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.message-btn:hover .message-tip{
+    visibility: visible;
+    opacity: 1;
+}
+  
+/* Cancel */
+.trash-btn {
+    position: relative;
+    display: inline-block;
+}
+  
+.trash-btn .trash-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.trash-btn:hover .trash-tip{
+    visibility: visible;
+    opacity: 1;
 }
