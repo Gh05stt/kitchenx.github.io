@@ -14,27 +14,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const propertyItem = document.createElement('div');
         propertyItem.className = 'property-item';
         propertyItem.innerHTML = `
-            <div class="property-details">
-                <img src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}">
-                <div class="property-description">
-                    <p class="item-location">${getLocation()}, Auckland</p>
-                    <p class="item-rating">★ ${getRandomRating()}</p>
-                    <p class="item-price">${getRandomPrice()}</p>
+        <div class="property-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="property-description">
+                <p class="item-location">${getLocation()}, Auckland</p>
+                <p class="item-rating">★ ${getRandomRating()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <div style="display: flex; align-items: center;">
                     <p class="item-dates">${getRandomDates()}</p>
+                    <div class="item-info" style="visibility: visible;"><i class="fa-solid fa-circle-info"></i>
+                    <div class="item-tip">Awaiting Approval</div></div>
                 </div>
-                <div class="manage-property">
-                <li><div class="edit-btn"><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
+            <div class="manage-property">
+                <li><div class="edit-btn"><a href="view-facility.html"><i class="fa-solid fa-pen-to-square"></i></a>
                     <span class="edit-tip">Edit Booking</span></div></li>
                 <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
                     <span class="message-tip">Message Host</span></div></li>
                 <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
                     <span class="trash-tip">Cancel Booking</span></div></li> 
-                </div>
             </div>
+        </div>
         `;
+    
         propertyList.appendChild(propertyItem);
     }
-
     updateNoBookingsMessage();
 });
 
@@ -96,9 +100,9 @@ function getRandomDates() {
 
 function getRandomRating() {
     return (Math.random() * (5 - 1) + 1).toFixed(1);
-  }
+}
   
-  function getRandomPrice() {
+function getRandomPrice() {
     const price = Math.floor(Math.random() * 2000) + 500;
     return `$${price} daily`;
-  }
+}

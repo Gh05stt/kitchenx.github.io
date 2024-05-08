@@ -4,8 +4,9 @@ window.addEventListener('load', () => {
     const phrases = [
         'Marinating the Servers',
         'Sharpening the Processors',
-        'Hiding the kids',
+        'Hiding the Kids',
         'Tenderising the TCP',
+        'Beating the Meat'
     ];
 
     const getRandomIndex = () => Math.floor(Math.random() * phrases.length);

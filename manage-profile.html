@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KitchenX - Manage Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Sidebar-->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
+        </div>
+        <a href="manage-profile.html">Profile</a>
+        <a href="security.html">Security & Privacy</a>
+        <a href="notifications.html">Notifications</a>
+    </div>
+
+    <!--Main content-->
+    <div class="main">
+        <div class="p-header">
+            <div class="p-pic-container">
+                <div class="p-pic">
+                    <div class="p-initial">B</div>
+                </div>
+            </div>
+            <h1>Baljot Toor</h1>
+        </div>
+
+        <div class="profile-form">
+            <form>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="btoo316@aucklanduni.ac.nz" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="(09) 923 5025" required>
+
+                <label for="billing-address">Billing Address</label>
+                <input type="text" id="billing-address" name="billing_address" value="The University of Auckland, 34 Princes Street, Auckland CBD, Auckland 1010" required>
+
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
+    </div>
+
+</body>
+</html>

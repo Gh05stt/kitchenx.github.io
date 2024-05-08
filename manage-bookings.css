@@ -210,7 +210,6 @@ a {
     margin-top: 30px;
 }
 
-
 .property-item {
     display: flex;
     align-items: center;
@@ -220,14 +219,25 @@ a {
     box-shadow: 3px 3px 9px rgba(37, 37, 37, .25);
     overflow: hidden;
     padding: 10px; 
+    margin-bottom: 15px;
 }
 
-.property-item img {
+.item-img {
     height: 150px;  
     width: 150px;   
     object-fit: cover;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.property-item img:hover{
+    transform: scale(1.01);
+}
+
+.property-item a:hover {
+    cursor: pointer;
 }
 
 .property-description {
@@ -380,6 +390,39 @@ a {
 }
 
 .trash-btn:hover .trash-tip{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Item warning */
+
+.item-info{
+    position: relative;
+    display: inline-block;
+    color: #181818;
+    margin-left: 15px;
+}
+
+.item-info .item-tip{
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+
+    position: absolute;
+    z-index: 1;
+    left: calc(100% + 5px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.item-info:hover .item-tip{
     visibility: visible;
     opacity: 1;
 }

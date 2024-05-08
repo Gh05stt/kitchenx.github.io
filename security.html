@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KitchenX - Manage Profile</title>
+    <link rel="stylesheet" href="security.css">
+    <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Sidebar-->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
+        </div>
+        <a href="manage-profile.html">Profile</a>
+        <a href="Profile/security.html">Security & Privacy</a>
+        <a href="Profile/notifications.html">Notifications</a>
+    </div>
+
+    <!--Content-->
+    <div class="main">
+        <div class="profile-form">
+            <form>
+                <label for="email">Password</label>
+                <input type="password" id="email" name="email" value="6*7Q3S>>*Pas" required>
+
+                <!--Add two factor authentication backup codes-->
+                <label for="phone">Two-factor authentication</label>
+                <input type="tel" id="phone" name="phone" value="" required>
+
+                <!--Add Default login alerts with IP and device type and location-->
+                <label for="billing-address">Login alerts</label>
+                <input type="text" id="billing-address" name="billing_address" value="" required>
+
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+
+    <!--Footer and scripts-->
+    <div class="footer">
+        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
+    </div>
+
+</body>
+</html>
