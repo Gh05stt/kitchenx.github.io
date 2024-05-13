@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KitchenX - Notifications</title>
+    <link rel="stylesheet" href="notifications.css">
+    <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Sidebar-->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
+        </div>
+        <a href="manage-profile.html">Profile</a>
+        <a href="security.html">Security & Privacy</a>
+        <a href="notifications.html">Notifications</a>
+    </div>
+
+    <!--Content-->
+    <div class="main">
+        <div class="notifs-form">
+            <h1>General</h1>
+            <ul>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="bookingsAlerts" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Bookings alerts
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="messages" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Messages
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="availabilityChanges" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Availability changes
+                </li>
+            </ul>
+    
+            <h1>Security</h1>
+            <ul>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="newLogins" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    New Logins
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="unknownLogins" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Unknown Logins
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="passwordChanges" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    Password Changes
+                </li>
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="twoFactorAlerts" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    2FA alerts
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Footer and scripts-->
+    <div class="footer">
+        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
+    </div>
+
+    <script src="notifications.js"></script>
+</body>
+</html>

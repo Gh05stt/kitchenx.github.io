@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>KitchenX - Manage Profile</title>
+    <title>KitchenX - Security</title>
     <link rel="stylesheet" href="security.css">
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
     <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
@@ -24,16 +24,28 @@
     <div class="main">
         <div class="profile-form">
             <form>
-                <label for="email">Password</label>
+                <label for="password">Password</label>
                 <input type="password" id="email" name="email" value="6*7Q3S>>*Pas" required>
 
-                <!--Add two factor authentication backup codes-->
-                <label for="phone">Two-factor authentication</label>
-                <input type="tel" id="phone" name="phone" value="" required>
+                <label for="2fa">Two-factor authentication</label>
+                <a id="revealBackupCodes" href="javascript:void(0)">Reveal Backup Codes</a>
 
-                <!--Add Default login alerts with IP and device type and location-->
-                <label for="billing-address">Login alerts</label>
-                <input type="text" id="billing-address" name="billing_address" value="" required>
+                <div id="backupCodesModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Backup Codes</h2>
+                        <ul id="backupCodesList"></ul>
+                    </div>
+                </div>
+
+                <label for="alerts">Recent Logins</label>
+                <div class="login-container">
+                    <li><i class="fa-solid fa-location-dot"></i> Auckland, New Zealand. 10 May 2024</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Auckland, New Zealand. 2 May 2024</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Auckland, New Zealand. 30 April 2024</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Auckland, New Zealand. 20 April 2024</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Auckland, New Zealand. 16 April 2024</li>
+                </div>
 
                 <input type="submit" value="Update">
             </form>
@@ -45,5 +57,6 @@
         <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
     </div>
 
+    <script src="security.js"></script>
 </body>
 </html>

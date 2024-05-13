@@ -426,3 +426,89 @@ a {
     visibility: visible;
     opacity: 1;
 }
+
+/* Date Picker */
+
+.calendar-container{
+    z-index: 99;
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.datepicker-container {
+    box-shadow: 5px 5px 9px rgba(94,104,121,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+    max-width: 500px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.calendar div {
+    padding: 10px;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.05), 
+    inset 1px 1px 3px rgba(94,104,121,0.15); 
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar div:hover {
+    background-color: #e0e0e0;
+}
+
+.calendar div.selected {
+    background-color: #9ecaed;
+    color: white;
+}
+
+.calendar div.range {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.start,
+.calendar div.end {
+    background-color: #ff395c;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.calendar div.today {
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.calendar div.today.start,
+.calendar div.today.end {
+    border: none;
+    background-color: #ff395c; 
+    color: white;
+}
+
+.datepicker-container .controls button{
+    background-color: transparent;
+}
