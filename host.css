@@ -164,18 +164,12 @@ a {
 .details-container{
     margin-left: 50px;
     width: 50vw;
+    max-width: 50vw;
 }
+
 .vl {
     border-left: 1.2px solid #bbbaba;
     height: 40px;
-}
-
-.search-container {
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
 }
 
 .search-bar {
@@ -188,7 +182,6 @@ a {
     padding: 10px 20px;
     padding-right: 0px;
     max-height: 45px; 
-    max-width: 690px;
 }
 
 .input-group {
@@ -216,7 +209,7 @@ a {
     border: 0;
     outline: none;
     font-size: 14px;
-    border-radius: 30px; 
+    border-radius: 30px;
 }
 
 .search-bar select {
@@ -257,7 +250,6 @@ a {
     background-color: transparent;
     border: none;
     height: auto;
-    max-width: inherit;
     height: 500px;
     text-align: left;
     vertical-align: top;
@@ -315,8 +307,6 @@ a {
     margin-right: 50px;
 }
 
-
-
 .footer::before {
     content: '';
     display: block;
@@ -341,6 +331,7 @@ a {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+    background-color: #fff;
 }
 
 .footer .price{
