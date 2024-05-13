@@ -429,12 +429,31 @@ a {
 
 /* Date Picker */
 
+.calendar-mask{
+    position: absolute;
+    z-index: 98;
+    background: rgb(255,255,255,0.5);
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    opacity: 1; 
+    pointer-events: auto; 
+    visibility: hidden;
+}
+
+.calendar-mask.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* Hidden when the hidden class is applied */
+}
+
 .calendar-container{
     z-index: 99;
     font-size: 18px;
     width: 100%;
     display: flex;
     justify-content: center;
+    position: absolute;
 }
 
 
@@ -443,7 +462,7 @@ a {
     padding: 20px;
     border-radius: 8px;
     background-color: #f6f6f6;
-    max-width: 500px;
+    max-width: 800px;
 }
 
 .controls {
@@ -498,7 +517,6 @@ button {
 }
 
 .calendar div.today {
-    border: 2px solid black;
     box-sizing: border-box;
 }
 
@@ -512,3 +530,35 @@ button {
 .datepicker-container .controls button{
     background-color: transparent;
 }
+
+.calendar-buttons{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.calendar-buttons a{
+    border-radius: 25px;
+    padding: 10px;
+    color: #fff;
+}
+
+.calendar-buttons .confirmBtn{
+    background-color: #ff6e86;
+    transition: all 0.2s ease-in-out;
+}
+
+.calendar-buttons .cancelBtn{
+    margin-left: 15px;
+    background-color: #787878;
+    transition: all 0.2s ease-in-out;
+}
+
+.calendar-buttons .confirmBtn:hover{
+    background-color: #ff395c;
+}
+
+.calendar-buttons .cancelBtn:hover{
+    background-color: #5d5d5d;
+}
+

@@ -38,14 +38,20 @@
 
     <!--Date picker-->
 
-    <div class="calendar-container">
-        <div class="datepicker-container">
-            <div class="controls">
-                <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
-                <span id="monthYear"></span>
-                <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="calendar-mask" style="visibility: hidden;">
+        <div class="calendar-container">
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+                <div class="calendar-buttons">
+                    <a href="#" class="confirmBtn">Confirm</a>
+                    <a href="#" class="cancelBtn">Cancel</a>
+                </div>
             </div>
-            <div id="datepicker" class="calendar"></div>
         </div>
     </div>
 

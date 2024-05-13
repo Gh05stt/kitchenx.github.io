@@ -1,4 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const cancelBtn = document.querySelector('.cancelBtn');
+    const calendarMask = document.querySelector('.calendar-mask');
+    const editBtns = document.querySelectorAll('.edit-btn a'); 
+
+    cancelBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleCalendarVisibility();
+    });
+
+    editBtns.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleCalendarVisibility();
+        });
+    });
+
+    function toggleCalendarVisibility() {
+        if (calendarMask.classList.contains('hidden')) {
+            calendarMask.classList.remove('hidden');
+            calendarMask.style.visibility = 'visible';
+        } else {
+            calendarMask.classList.add('hidden');
+            calendarMask.addEventListener('transitionend', function() {
+                if (calendarMask.classList.contains('hidden')) {
+                    calendarMask.style.visibility = 'hidden';
+                }
+            }, { once: true });
+        }
+    }
+
     const propertyList = document.getElementById('propertyList');
     const minProperties = 3;
     const maxProperties = 12;
@@ -36,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         `;
+
+        propertyItem.querySelector('.edit-btn a').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            toggleCalendarVisibility();
+        });
     
         propertyList.appendChild(propertyItem);
     }
@@ -155,7 +190,6 @@ function renderCalendar(month, year) {
         }
     }
 }
-
 
 function changeMonth(change) {
     currentMonth += change;
