@@ -301,8 +301,14 @@ a {
     justify-content: space-between;
 }
 
-.description-container, .gallery-container {
+.description-container{
     flex: 1;
+    margin: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.gallery-container{
     margin: 20px;
     margin-right: 50px;
 }
