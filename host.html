@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="host.css">
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
     <link rel="stylesheet" href="splash.css">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="splash-screen">
@@ -40,6 +41,87 @@
         </div>
     </div>
 
+    <div id="success-splash" style="visibility: hidden;">
+        <div id="success-content">
+            <img src="Images/KitchenX Logo.png" alt="Logo">
+            <h1 id="success-text">Success!</h1>
+            <p>Your listing is now live!</p>
+        </div>
+    </div>
+
+    <!--Confirm publish-->
+    <div class="confirm-publish-container hidden" style="visibility: hidden;">
+        <div class="c-publish">
+            <div class="confirm-publish">
+                <h1>Confirm Listing Details</h1>
+                <div class="details-container-c">
+                    <div class="description">
+                        <h2>Description</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae officiis mollitia est doloribus totam cupiditate quos a cumque. Sed reprehenderit vitae, nulla doloremque placeat voluptatibus in amet dolor laudantium laboriosam.</p>
+                    </div>
+                    <div class="amenities">
+                        <h2>Amenities</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae officiis mollitia est doloribus totam cupiditate quos a cumque. Sed reprehenderit vitae, nulla doloremque placeat voluptatibus in amet dolor laudantium laboriosam.</p>
+                    </div>
+                    <div class="availability">
+                        <h2>Days Available</h2>
+                        <div class="day-selector-container"></div>
+                    </div>
+                    <div class="price">
+                        <h2>Price</h2>
+                        <p class="final-price">$1,900 daily</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="gallery-container">
+                <div class="main-image">
+                    <img src="Images/grey.jpg" class="mainImage" alt="Main Image">
+                </div>
+                <div class="thumbnail-container">
+                    <img src="Images/grey.jpg" class="thumbnail" alt="Thumbnail 1">
+                    <img src="Images/grey.jpg" class="thumbnail" alt="Thumbnail 2">
+                    <img src="Images/grey.jpg" class="thumbnail" alt="Thumbnail 3">
+                </div>
+            </div>
+        </div>
+
+        <div class="confirmation-c">
+            <div class="confirm-buttons">
+                <a href="#" class="cancelPublishBtn">Cancel</a>
+                <a href="#" class="publishBtn">Publish</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Selector -->
+    <div class="calendar-mask hidden" style="visibility: hidden;">
+        <div class="calendar-c1">
+            <h1>Select Available Days</h1>
+            <div class="day-selector-container">
+                <div class="day" data-day="Monday"><p>Mon</p></div>
+                <div class="day" data-day="Tuesday"><p>Tue</p></div>
+                <div class="day" data-day="Wednesday"><p>Wed</p></div>
+                <div class="day" data-day="Thursday"><p>Thur</p></div>
+                <div class="day" data-day="Friday"><p>Fri</p></div>
+                <div class="day" data-day="Saturday"><p>Sat</p></div>
+                <div class="day" data-day="Sunday"><p>Sun</p></div>
+            </div>
+        </div>
+        <div class="price-selector">
+            <h1>Select price</h1>
+            <div class="price-input-container">
+                <span class="currency-symbol">$</span>
+                <input type="number" placeholder="Enter daily price" name="price">
+            </div>
+            <div class="publish-confirm-buttons">
+                <a href="#" class="cancelBtn">Cancel</a>
+                <a href="#" class="confirmBtn">Confirm</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Content-->
     <div class="content">
         <div class="details-container">
             <div class="title">
@@ -71,17 +153,21 @@
                         <label>Description</label>
                         <input type="text" name="description">
                     </div>
+                    <div class="amenities-group">
+                        <label>Amenities</label>
+                        <input type="text" name="description">
+                    </div>
             </div>
         </div>
 
         <div class="gallery-container">
             <div class="main-image">
-                <img src="Images/grey.jpeg" class="mainImage" alt="Main Image">
+                <img src="Images/grey.jpg" class="mainImage" alt="Main Image">
             </div>
             <div class="thumbnail-container">
-                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
-                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
-                <img src="Images/grey.jpeg" class="thumbnail" alt="Thumbnail 1">
+                <img src="Images/grey.jpg" class="thumbnail" alt="Thumbnail 1">
+                <img src="Images/grey.jpg" class="thumbnail" alt="Thumbnail 2">
+                <img src="Images/upload.jpg" id="upload-pic" class="thumbnail" alt="Thumbnail 3">
             </div>
         </div>
     </div>
