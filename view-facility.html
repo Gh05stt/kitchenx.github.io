@@ -32,6 +32,60 @@
         </div>
     </div>
 
+    <!--Confirmation overlay-->
+    <div class="confirmation-mask" style="visibility: hidden;">
+        <!--Calendar-->
+        <div class="calendar-container">
+            <div class="calendar-text">
+                <p>Select Dates</p>
+            </div>
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+            </div>
+        </div>
+
+        <!--Payment-->
+        <div class="payment-c">
+            <div class="payment-text">
+                <p>Payment Method</p>
+            </div>
+            <div class="payment-container">
+                <form>
+                    <div class="form-group">
+                        <label for="ccNumber">Credit Card Number:</label>
+                        <input type="text" placeholder="1234 5678 1234 5678" id="ccNumber" name="ccNumber" pattern="\d{16}" title="Credit card number must be 16 digits" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date:</label>
+                        <input type="month" id="expiry" name="expiry" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" placeholder="123" id="cvv" name="cvv" pattern="\d{3}" title="CVV must be 3 digits" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="discountCode">Discount Code:</label>
+                        <input type="text" id="discountCode" name="discountCode">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" class="cancel-button" id="cancelButton">Cancel</button>
+                        <button type="button" class="submit-button" id="submitBtn">Book Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
     <div class="content">
         <div class="description-container">
             <p class="title">Ice Cream Parlour</p> 
@@ -68,30 +122,14 @@
         </div>
     </div>
 
-    <div class="details-container">
-        <div class="calendar-container">
-            <div class="calendar-text">
-                <p>Choose your Dates</p>
-            </div>
-            <div class="datepicker-container">
-                <div class="controls">
-                    <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span id="monthYear"></span>
-                    <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div id="datepicker" class="calendar"></div>
-            </div>
-        </div>
-    </div>
-
     <p id="reviews-header">Reviews</p>
     <div class="reviews-container">
     </div>
     <div class="footer">
         <p class="price">$1,900 daily</p>
         <div class="button-container">
-            <button class="cancel">Cancel</button>
-            <button class="book">Book</button>
+            <button class="cancel"><a href="index.html">Cancel</a></button>
+            <button class="book" id="bookButton">Book</button>
         </div>
     </div>
     

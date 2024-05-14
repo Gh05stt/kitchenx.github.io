@@ -204,3 +204,34 @@ function isDateInRange(date) {
     }
     return false;
 }
+
+document.getElementById('bookButton').addEventListener('click', function() {
+  document.querySelector('.confirmation-mask').style.visibility = 'visible'; 
+  document.querySelector('.content').classList.add('hidden');
+  document.querySelector('.footer').classList.add('hidden'); 
+  document.querySelector('.nav-bar').classList.add('hidden'); 
+  var confirmationMask = document.querySelector('.confirmation-mask');
+  confirmationMask.classList.add('visible'); 
+});
+
+document.getElementById('cancelButton').addEventListener('click', function() { 
+  document.querySelector('.confirmation-mask').style.visibility = 'hidden'; 
+  document.querySelector('.content').classList.remove('hidden'); 
+  document.querySelector('.footer').classList.remove('hidden'); 
+  document.querySelector('.nav-bar').classList.remove('hidden'); 
+});
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+  const ccNumber = document.getElementById('ccNumber').value;
+  const expiry = document.getElementById('expiry').value;
+  const cvv = document.getElementById('cvv').value;
+  const isFormValid = ccNumber && expiry && cvv; 
+
+  const isDateRangeSelected = selectedDates.start && selectedDates.end;
+
+  if (isFormValid && isDateRangeSelected) {
+    window.location.href = 'manage-bookings.html'; 
+  } else {
+    alert('Please fill out all required fields and select a date range.');
+  }
+});

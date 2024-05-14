@@ -32,6 +32,7 @@ a {
     justify-content: space-between;
     position: relative; 
     font-size: 30px;
+    z-index: 1000;
 }
 
 .nav-bar .logo, .nav-bar .profile-button {
@@ -263,17 +264,23 @@ a {
     background-color: #787878;
     color: #fff;
     transition: all 0.2s ease-in-out;
+    width: 100px;
+}
+
+.cancel a{
+    color: #fff;
 }
 
 .button-container .book{
-    background-color: #ff395c;
+    width: 100px;
+    background-color: #ff6e86;
     color: #fff;
     transition: all 0.2s ease-in-out;
 }
 
 .button-container .book:hover{
     cursor: pointer;
-    background-color: #e05169;
+    background-color: #ff395c;
 }
 
 .button-container .cancel:hover{
@@ -468,4 +475,130 @@ button {
 
 #logout{
     margin-top: 40px;
+}
+
+/*Confirm dates*/
+
+.confirmation-mask {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    background-color: #f4f4f4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    z-index: 999;
+    opacity: 0;  
+    visibility: hidden; 
+    transition: visibility 0s 0.5s, opacity 0.5s linear;  
+}
+
+.confirmation-mask.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s linear;  
+}
+
+
+.confirmation-mask .payment-text{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.confirmation-mask .calendar-text{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.confirmation-mask .calendar-container{
+    max-width: 500px;
+}
+
+.confirmation-mask .calendar-container{
+    margin-top: 20px;
+}
+
+/* Payment */
+
+.payment-c{
+    margin-left: 200px;
+}
+
+.payment-container{
+    margin: 50px;
+    margin-top: 20px;
+    max-width: 500px;
+    width: 300px;
+    max-height: 450px;
+    padding: 30px;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 
+    5px 5px 9px rgba(94,104,121,0.3);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500; 
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.submit-button {
+    background-color: #ff6e86;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40%;
+    font-size: 16px;
+    height: 50px;
+}
+
+.submit-button a{
+    color: #fff;
+}
+
+.submit-button:hover {
+    background-color: #ff395c; 
+}
+
+.cancel-button {
+    height: 50px;
+    background-color: #787878;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40%;
+    font-size: 16px;
+}
+
+.cancel-button:hover {
+    background-color: #6a6a6a; 
 }
