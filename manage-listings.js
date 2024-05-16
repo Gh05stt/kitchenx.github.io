@@ -401,7 +401,7 @@ function populatePastListings(listId) {
                 </div>
             </div>
             <div class="manage-property">
-            <li><div class="review-btn"><a href="#"><i class="fa-solid fa-star"></i></a>
+            <li><div class="review-btn"><a href=""><i class="fa-solid fa-star"></i></a>
                 <span class="review-tip">Leave Review</span></div></li>
                 <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
                     <span class="message-tip">Message Tenant</span></div></li>
