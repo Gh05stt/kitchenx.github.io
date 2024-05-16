@@ -47,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     });
     
-
-
-
     document.querySelectorAll('.day').forEach(day => {
         day.addEventListener('click', function () {
             day.classList.toggle('selected');

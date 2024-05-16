@@ -394,6 +394,10 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
+.cancel a{
+    color: #fff;
+}
+
 .button-container .host {
     background-color: #ff6e86;
     color: #fff;
@@ -508,13 +512,17 @@ a {
 }
 
 .publish-confirm-buttons .confirmBtn {
-    font-size: 22px;
+    text-align: center;
+    width: 100px;
+    font-size: 24px;
     background-color: #ff6e86;
     transition: all 0.2s ease-in-out;
 }
 
 .publish-confirm-buttons .cancelBtn {
-    font-size: 22px;
+    text-align: center;
+    width: 100px;
+    font-size: 24px;
     margin-left: 15px;
     background-color: #787878;
     transition: all 0.2s ease-in-out;
@@ -654,6 +662,8 @@ a {
 }
 
 .confirm-buttons .publishBtn {
+    text-align: center;
+    width: 100px;
     margin-left: 15px;
     font-size: 22px;
     background-color: #ff6e86;
@@ -661,6 +671,8 @@ a {
 }
 
 .confirm-buttons .cancelPublishBtn {
+    text-align: center;
+    width: 100px;
     font-size: 22px;
     background-color: #787878;
     transition: all 0.2s ease-in-out;

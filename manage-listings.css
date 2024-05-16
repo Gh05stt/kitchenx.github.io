@@ -74,11 +74,11 @@ a {
 }
 
 .book-link {
-    color: #000; 
+    color: #6a6a6a; 
 }
 
 .host-link {
-    color: #6a6a6a; 
+    color: #000; 
 }
 
 .nav-bar ul li a:hover {
@@ -243,6 +243,10 @@ a {
 .property-description {
     flex-grow: 1; 
     padding: 10px;
+}
+
+.property-description span{
+    font-weight: 500;
 }
 
 /* Footer */
@@ -427,18 +431,331 @@ a {
     opacity: 1;
 }
 
-/* Date Picker */
+
+/* Days available */
+.day-selector-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.day {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), 
+                inset 1px 1px 3px rgba(94, 104, 121, 0.15); 
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.day p {
+    margin: 0;
+    font-size: 10px;
+}
+
+.day.selected {
+    background-color: #ff6e86;
+    color: white;
+}
+
+
+
+/* Pending Tool tips */
+/* Tool Tips */
+/* Edit */
+.approve-btn {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+}
+  
+.approve-btn .approve-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.approve-btn:hover .approve-tip{
+    visibility: visible;
+    opacity: 1;
+}
+  
+/* Cancel */
+.deny-btn {
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+}
+  
+.deny-btn .deny-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.deny-btn:hover .deny-tip{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* Review */
+.review-btn {
+    position: relative;
+    display: inline-block;
+}
+  
+.review-btn .review-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.review-btn:hover .review-tip{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Edit days & pricing */
+
+
+/* Day Change */
+.c-mask{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 999;
+    text-align: center;
+    font-size: 34px;
+}
+
+.day-change-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.day-c {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), 
+                inset 1px 1px 3px rgba(94, 104, 121, 0.15); 
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.day-c p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.day-c.selected {
+    background-color: #ff395c;
+    color: white;
+}
+
+.day-c:hover{
+    background-color: #f990a1;
+    color: #fff;
+}
+
+/* Price Change*/
+
+.price-selector h1{
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+}
+
+.price-selector{
+    display: grid;
+    justify-content: space-around;
+}
+
+.price-selector input{
+    font-size: 32px;
+    border-style: none;
+    text-align: center;
+}
+
+.price-input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 10px;
+    font-size: 34px;
+    color: #000;
+}
+
+.price-input-container input[type="number"] {
+    font-size: 32px;
+    border-style: none;
+    border-radius: 30px;
+    text-align: center;
+    height: 40px;
+    background-color: #f3f3f3;
+}
+
+.price-input-container input[type="number"]::placeholder {
+    color: #ccc;
+}
+
+
+/* Confirm buttons */
+
+
+.publish-confirm-buttons {
+    margin-top: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.publish-confirm-buttons a {
+    border-radius: 45px;
+    padding: 15px;
+    color: #fff;
+}
+
+.publish-confirm-buttons .confirmBtn {
+    text-align: center;
+    width: 100px;
+    font-size: 24px;
+    background-color: #ff6e86;
+    transition: all 0.2s ease-in-out;
+}
+
+.publish-confirm-buttons .cancelBtn {
+    text-align: center;
+    width: 100px;
+    font-size: 24px;
+    margin-left: 15px;
+    background-color: #787878;
+    transition: all 0.2s ease-in-out;
+}
+
+.publish-confirm-buttons .confirmBtn:hover {
+    background-color: #ff395c;
+}
+
+.publish-confirm-buttons .cancelBtn:hover {
+    background-color: #5d5d5d;
+}
+
+/* Upcoming listings buttons */
+
+.upcoming-btn {
+    position: relative;
+    display: inline-block;
+}
+  
+.upcoming-btn .upcoming-tip{
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    border-radius: 5px;
+    
+    top: 0px;
+    right: 140%;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.upcoming-btn:hover .upcoming-tip{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Upcoming booking Calendar */
+ 
 
 .calendar-mask{
-    position: absolute;
-    z-index: 98;
-    background: rgb(255,255,255,0.5);
+    position: fixed;
+    z-index: 999;
+    background: rgb(255,255,255);
     width: 100%;
     height: 100%;
     transition: all 0.5s ease;
     opacity: 1; 
-    pointer-events: auto; 
-    visibility: hidden;
+    top: 0;
+    visibility: visible;
+}
+
+.calendar-mask p{
+    font-size: 34px;
+    text-align: center;
 }
 
 .calendar-mask.hidden {
@@ -543,22 +860,102 @@ button {
     color: #fff;
 }
 
-.calendar-buttons .confirmBtn{
+.calendar-buttons .confirmBtn-c{
     background-color: #ff6e86;
     transition: all 0.2s ease-in-out;
 }
 
-.calendar-buttons .cancelBtn{
+.calendar-buttons .closeBtn{
     margin-left: 15px;
     background-color: #787878;
     transition: all 0.2s ease-in-out;
 }
 
-.calendar-buttons .confirmBtn:hover{
+.calendar-buttons .confirmBtn-c:hover{
     background-color: #ff395c;
 }
 
-.calendar-buttons .cancelBtn:hover{
+.calendar-buttons .closeBtn:hover{
     background-color: #5d5d5d;
 }
 
+
+/* Leave Review */
+.reviews-mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    background: rgb(255,255,255);
+    top: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    visibility: visible;
+}
+
+.reviews-mask.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; 
+}
+
+.reviews-mask p{
+    text-align: center;
+    font-size: 34px;
+}
+
+.review-container{
+    z-index: 99;
+    font-size: 18px;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    position: absolute;
+}
+
+.review-input{
+    width: 600px;
+    height: 400px;
+    border-radius: 45px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.review-input input{
+    border: none;
+    background-color: transparent;
+    width: 600px;
+    height: 400px;
+}
+
+
+.review-buttons{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review-buttons a{
+    border-radius: 25px;
+    padding: 10px;
+    color: #fff;
+}
+
+.review-buttons .confirmBtn-r{
+    background-color: #ff6e86;
+    transition: all 0.2s ease-in-out;
+    margin-left: 15px;
+}
+
+.review-buttons .closeBtn-r{
+    background-color: #787878;
+    transition: all 0.2s ease-in-out;
+}
+
+.review-buttons .confirmBtn-r:hover{
+    background-color: #ff395c;
+}
+
+.review-buttons .closeBtn-r:hover{
+    background-color: #5d5d5d;
+}

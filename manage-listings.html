@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KitchenX</title>
+    <link rel="stylesheet" href="manage-listings.css">
+    <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">
+            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
+        </div>
+        <ul>
+            <li><a href="index.html" class="book-link" id="transition">Book</a></li>
+            <li><a href="host.html" class="host-link" id="transition">Host</a></li>
+        </ul>
+        <div class="profile-button">
+            <a href="#" id="profileBtn">Profile</a>
+        </div>
+    </div>
+    <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-container">
+            <ul>
+                <li><a href="404.html">Messages</a></li>
+                <li><a href="manage-listings.html">Listings</a></li>
+                <li><a href="manage-profile.html">Manage Profile</a></li>
+                <li id="logout"><a href="logout.html">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Day & Price adjust-->
+
+    <!--Change mask-->
+    <div class="c-mask hidden">
+        <!-- Day Selector -->
+        <div class="day-title">
+            <p>Change Availability</p>
+        </div>
+        <div class="day-change-container">
+            <div class="day-c" data-day="Monday"><p>Mon</p></div>
+            <div class="day-c" data-day="Tuesday"><p>Tue</p></div>
+            <div class="day-c" data-day="Wednesday"><p>Wed</p></div>
+            <div class="day-c" data-day="Thursday"><p>Thu</p></div>
+            <div class="day-c" data-day="Friday"><p>Fri</p></div>
+            <div class="day-c" data-day="Saturday"><p>Sat</p></div>
+            <div class="day-c" data-day="Sunday"><p>Sun</p></div>
+        </div>
+        
+        <!--Price change-->
+        <div class="price-selector">
+            <h1>Select price</h1>
+            <div class="price-input-container">
+                <span class="currency-symbol">$</span>
+                <input type="number" placeholder="Enter daily price" name="price">
+            </div>
+            <div class="publish-confirm-buttons">
+                <a href="#" class="cancelBtn">Back</a>
+                <a href="#" class="confirmBtn">Confirm</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Reviews-->
+    <div class="reviews-mask" style="visibility: hidden;">
+        <p>Leave a Review</p>
+        <div class="review-container">
+            <div class="review-input">
+                <input type="text" placeholder="Enter review">
+            </div>
+
+            <div class="review-buttons">
+                <a href="#" class="closeBtn-r">Cancel</a>
+                <a href="#" class="confirmBtn-r">Confirm</a>
+            </div>
+        </div>
+    </div>
+    <!--Change dates-->
+
+    <div class="calendar-mask" style="visibility: hidden;">
+        <p>Change Booking Dates</p>
+        <div class="calendar-container">
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+                <div class="calendar-buttons">
+                    <a href="#" class="confirmBtn-c">Confirm</a>
+                    <a href="#" class="closeBtn">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Listings-->
+    
+    <!--Upcoming-->
+    <div class="property-header">
+        <p>Pending Approval</p>
+    </div>
+
+    <div class="property-wrapper">
+        <div class="property-list" id="pendingList">
+        </div>
+    </div>
+    
+    <div class="property-header">
+        <p>Currently Listed</p>
+    </div>
+
+    <div class="property-wrapper">
+        <div class="property-list" id="currentList"></div>
+    </div>
+        
+    <div class="property-header">
+        <p>Upcoming Bookings</p>
+    </div>
+
+    <div class="property-wrapper">
+        <div class="property-list" id="upcomingList"></div>
+    </div>
+
+    <!--Past-->
+    <div class="property-header">
+        <p>Past Bookings</p>
+    </div>
+
+    <div class="property-wrapper">
+        <div class="property-list" id="pastList"></div>
+    </div>
+
+
+    <script src="manage-listings.js"></script>
+    <script src="profile-container.js"></script>
+</body>
+</html>
