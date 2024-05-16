@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //Open Review Container
     document.querySelector('.review-btn a').addEventListener('click', function(event) {
         event.preventDefault();
+        console.log("CLICKED");
         toggleReviewVisibility();
     });
 
