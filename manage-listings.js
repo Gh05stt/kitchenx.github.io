@@ -58,9 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     //Reviews
 
     //Open Review Container
-    document.querySelector('.review-btn a').addEventListener('click', function(event) {
+    document.querySelectorAll('.review-btn').addEventListener('click', function(event) {
         event.preventDefault();
-        console.log("CLICKED");
         toggleReviewVisibility();
     });
 
@@ -213,8 +212,6 @@ function getRandomPastDates() {
 
     return `${formatDate(end)} - ${formatDate(start)}`;
 }
-
-
 
 function getRandomRating() {
     return (Math.random() * (5 - 1) + 1).toFixed(1);
@@ -401,7 +398,7 @@ function populatePastListings(listId) {
                 </div>
             </div>
             <div class="manage-property">
-            <li><div class="review-btn"><a href=""><i class="fa-solid fa-star"></i></a>
+            <li><div class="review-btn"><a><i class="fa-solid fa-star"></i></a>
                 <span class="review-tip">Leave Review</span></div></li>
                 <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
                     <span class="message-tip">Message Tenant</span></div></li>

@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    populateUpcomingListings('upcomingList');
+    populatePastListings('pastList');
     const cancelBtn = document.querySelector('.cancelBtn');
     const calendarMask = document.querySelector('.calendar-mask');
-    const editBtns = document.querySelectorAll('.edit-btn a'); 
+    const editBtns = document.querySelectorAll('.upcoming-btn a'); 
 
     cancelBtn.addEventListener('click', function(event) {
         event.preventDefault();
@@ -10,69 +12,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     editBtns.forEach(button => {
         button.addEventListener('click', function(event) {
+            console.log("CLICK");
             event.preventDefault();
             toggleCalendarVisibility();
         });
     });
 
     function toggleCalendarVisibility() {
+        console.log("Toggle 1");
         if (calendarMask.classList.contains('hidden')) {
+            console.log("Toggle 2");
             calendarMask.classList.remove('hidden');
+            console.log("Toggle 3");
             calendarMask.style.visibility = 'visible';
+            console.log("Toggle 4");
         } else {
             calendarMask.classList.add('hidden');
+            console.log("Toggle 5");
             calendarMask.addEventListener('transitionend', function() {
                 if (calendarMask.classList.contains('hidden')) {
                     calendarMask.style.visibility = 'hidden';
                 }
             }, { once: true });
         }
-    }
-
-    const propertyList = document.getElementById('propertyList');
-    const minProperties = 3;
-    const maxProperties = 12;
-    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
-    const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
-
-    for (let i = 0; i < numProperties; i++) {
-        const randomTypeIndex = Math.floor(Math.random() * types.length);
-        const kitchenType = types[randomTypeIndex];
-        const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
-        const imageNumber = Math.floor(Math.random() * 7) + 1;
-
-        const propertyItem = document.createElement('div');
-        propertyItem.className = 'property-item';
-        propertyItem.innerHTML = `
-        <div class="property-details">
-            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
-            <div class="property-description">
-                <p class="item-location">${getLocation()}, Auckland</p>
-                <p class="item-rating">★ ${getRandomRating()}</p>
-                <p class="item-price">${getRandomPrice()}</p>
-                <div style="display: flex; align-items: center;">
-                    <p class="item-dates">${getRandomDates()}</p>
-                    <div class="item-info" style="visibility: visible;"><i class="fa-solid fa-circle-info"></i>
-                    <div class="item-tip">Awaiting Approval</div></div>
-                </div>
-            </div>
-            <div class="manage-property">
-                <li><div class="edit-btn"><a href="view-facility.html"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <span class="edit-tip">Edit Booking</span></div></li>
-                <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
-                    <span class="message-tip">Message Host</span></div></li>
-                <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
-                    <span class="trash-tip">Cancel Booking</span></div></li> 
-            </div>
-        </div>
-        `;
-
-        propertyItem.querySelector('.edit-btn a').addEventListener('click', function(event) {
-            event.preventDefault(); 
-            toggleCalendarVisibility();
-        });
-    
-        propertyList.appendChild(propertyItem);
     }
     updateNoBookingsMessage();
 });
@@ -236,4 +198,101 @@ function isDateInRange(date) {
         return date > selectedDates.start && date < selectedDates.end;
     }
     return false;
+}
+
+function getRandomPastDates() {
+    const start = new Date(); 
+    start.setDate(start.getDate() - Math.floor(Math.random() * 30 + 1));
+    const end = new Date(start); 
+
+
+    const formatDate = (date) => {
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    };
+
+    return `${formatDate(end)} - ${formatDate(start)}`;
+}
+
+
+//Upcoming 
+function populateUpcomingListings(listId) {
+    const propertyList = document.getElementById(listId);
+    const minProperties = 1;
+    const maxProperties = 4;
+    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
+    const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
+
+    for (let i = 0; i < numProperties; i++) {
+        const randomTypeIndex = Math.floor(Math.random() * types.length);
+        const kitchenType = types[randomTypeIndex];
+        const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
+        const imageNumber = Math.floor(Math.random() * 7) + 1;
+
+        const propertyItem = document.createElement('div');
+        propertyItem.className = 'property-item';
+        propertyItem.innerHTML = `
+        <div class="property-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="property-description">
+                <p class="item-location"><span>${getLocation()}, Auckland</span></p>
+                <p class="item-rating"><span>Tenant Rating:</span> ★ ${getRandomRating()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <div style="display: flex; align-items: center;">
+                    <p class="item-dates">${getRandomDates()}</p>
+                </div>
+            </div>
+            <div class="manage-property">
+                <li><div class="upcoming-btn" id="editDates"><a><i class="fa-solid fa-pen-to-square"></i></a>
+                    <span class="upcoming-tip">Edit Booking</span></div></li>
+                <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
+                    <span class="message-tip">Message Tenant</span></div></li>
+                <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
+                    <span class="trash-tip">Cancel Booking</span></div></li> 
+            </div>
+        </div>
+        `;
+        propertyList.appendChild(propertyItem);
+    }
+}
+
+
+//Completed
+function populatePastListings(listId) {
+    const propertyList = document.getElementById(listId);
+    const minProperties = 1;
+    const maxProperties = 4;
+    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
+    const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
+
+    for (let i = 0; i < numProperties; i++) {
+        const randomTypeIndex = Math.floor(Math.random() * types.length);
+        const kitchenType = types[randomTypeIndex];
+        const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
+        const imageNumber = Math.floor(Math.random() * 7) + 1;
+
+        const propertyItem = document.createElement('div');
+        propertyItem.className = 'property-item';
+        propertyItem.innerHTML = `
+        <div class="property-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="property-description">
+                <p class="item-location"><span>${getLocation()}, Auckland</span></p>
+                <p class="item-rating"><span>Tenant Rating:</span> ★ ${getRandomRating()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <div style="display: flex; align-items: center;">
+                    <p class="item-dates">${getRandomPastDates()}</p>
+                </div>
+            </div>
+            <div class="manage-property">
+            <li><div class="review-btn"><a><i class="fa-solid fa-star"></i></a>
+                <span class="review-tip">Leave Review</span></div></li>
+                <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
+                    <span class="message-tip">Message Tenant</span></div></li>
+                <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
+                    <span class="trash-tip">Remove Booking</span></div></li> 
+            </div>
+        </div>
+        `;
+        propertyList.appendChild(propertyItem);
+    }
 }
