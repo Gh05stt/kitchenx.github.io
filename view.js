@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const hostName = document.querySelector('.host-name');
   const yearsHostingSpan = document.querySelector('.years-hosting');
   const reviewsContainer = document.querySelector('.reviews-container');
+  const successSplash = document.getElementById("success-splash");
+  const publishBtn = document.getElementById("submitBtn");
 
   changeKitchenType();
   renderCalendar(currentMonth, currentYear);
@@ -118,6 +120,17 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
       console.error('Error fetching reviews:', error);
     });
+
+    publishBtn.addEventListener('click', function (event) {
+      console.log("CLICK");
+        event.preventDefault();
+        successSplash.style.visibility = "visible";
+        confirmPublishContainer.style.visibility = "hidden";
+        setTimeout(function() {
+            window.location.reload(true);
+        }, 2500);
+    });
+
 });
 
 function getRandomRating() {
@@ -230,7 +243,9 @@ document.getElementById('submitBtn').addEventListener('click', function() {
   const isDateRangeSelected = selectedDates.start && selectedDates.end;
 
   if (isFormValid && isDateRangeSelected) {
-    window.location.href = 'manage-bookings.html'; 
+    setTimeout(function() {
+      window.location.href = 'view-facility.html'; 
+    }, 2500);
   } else {
     alert('Please fill out all required fields and select a date range.');
   }

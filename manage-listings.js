@@ -279,7 +279,7 @@ function populateCurrentListings(listId) {
 //Pending Approval
 function populatePendingListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 2;
+    const minProperties = 1;
     const maxProperties = 3;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;

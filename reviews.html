@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KitchenX - Manage Profile</title>
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
+    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Edit review-->
+    <div class="reviews-mask" style="visibility: hidden;">
+        <p>Edit Review</p>
+        <div class="edit-container">
+             <div class="review-input">
+                <input type="text" placeholder="Enter review">
+            </div>
+    
+            <div class="review-buttons">
+                <a class="closeBtn-r">Cancel</a>
+                <a class="confirmBtn-r">Confirm</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Sidebar-->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
+        </div>
+        <a href="manage-profile.html">Profile</a>
+        <a href="security.html">Security & Privacy</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="reviews.html">Reviews</a>
+    </div>
+
+    <!--Main content-->
+    <div class="main">
+
+        <h1>Past Reviews</h1>
+        <!--Reviews-->
+        <div class="reviews-container" id="reviews-container">
+
+        </div>        
+        
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
+    </div>
+
+    <script src="reviews.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainImages = document.querySelectorAll(".main-image img");
     const allThumbnails = document.querySelectorAll(".thumbnail-container");
     const uploadThumbnail = document.getElementById("upload-pic");
-    const proceedBtn = document.querySelector('.host'); // Ensure this selector matches the HTML
+    const proceedBtn = document.querySelector('.host'); 
     const calendarMask = document.querySelector('.calendar-mask');
     const confirmPublishContainer = document.querySelector('.confirm-publish-container');
     const publishBtn = document.querySelector(".publishBtn");

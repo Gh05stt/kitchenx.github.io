@@ -19,16 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function toggleCalendarVisibility() {
-        console.log("Toggle 1");
         if (calendarMask.classList.contains('hidden')) {
-            console.log("Toggle 2");
             calendarMask.classList.remove('hidden');
-            console.log("Toggle 3");
             calendarMask.style.visibility = 'visible';
-            console.log("Toggle 4");
         } else {
             calendarMask.classList.add('hidden');
-            console.log("Toggle 5");
             calendarMask.addEventListener('transitionend', function() {
                 if (calendarMask.classList.contains('hidden')) {
                     calendarMask.style.visibility = 'hidden';
@@ -217,7 +212,7 @@ function getRandomPastDates() {
 //Upcoming 
 function populateUpcomingListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 2;
+    const minProperties = 1;
     const maxProperties = 4;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
@@ -259,7 +254,7 @@ function populateUpcomingListings(listId) {
 //Completed
 function populatePastListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 2;
+    const minProperties = 1;
     const maxProperties = 4;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
