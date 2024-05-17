@@ -217,7 +217,7 @@ function getRandomPastDates() {
 //Upcoming 
 function populateUpcomingListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 1;
+    const minProperties = 2;
     const maxProperties = 4;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
@@ -259,7 +259,7 @@ function populateUpcomingListings(listId) {
 //Completed
 function populatePastListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 1;
+    const minProperties = 2;
     const maxProperties = 4;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
