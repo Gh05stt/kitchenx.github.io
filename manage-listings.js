@@ -34,6 +34,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    //Approval / Deny requests
+    document.querySelectorAll('.approve-btn a, .deny-btn a').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const outcome = this.getAttribute('data-action'); 
+            const propertyItem = this.closest('.property-item');
+            if (outcome && propertyItem) {
+                removePending(propertyItem, outcome);
+            }
+        });
+    });
+    
+
     // Confirm button functionality
     document.querySelector('.c-mask .confirmBtn').addEventListener('click', function() {
         if (currentlyEditingItem) {
@@ -58,11 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
     //Reviews
 
     //Open Review Container
-    document.querySelectorAll('.review-btn').addEventListener('click', function(event) {
-        event.preventDefault();
-        toggleReviewVisibility();
+    document.querySelectorAll('.review-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleReviewVisibility();
+        });
     });
-
 
     //Post Review
     document.querySelector('.reviews-mask .confirmBtn-r').addEventListener('click', function() {
@@ -160,6 +174,14 @@ function getLocation() {
 
 function removePropertyItem(element) {
     if (confirm("Are you sure you want to cancel this booking?")) {
+        element.closest('.property-item').remove();
+        updateNoBookingsMessage();
+    }
+    return false; 
+}
+
+function removePending(element,outcome) {
+    if (confirm(`Are you sure you want to ${outcome} this booking?`)) {
         element.closest('.property-item').remove();
         updateNoBookingsMessage();
     }
@@ -279,7 +301,7 @@ function populateCurrentListings(listId) {
 //Pending Approval
 function populatePendingListings(listId) {
     const propertyList = document.getElementById(listId);
-    const minProperties = 1;
+    const minProperties = 2;
     const maxProperties = 3;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
@@ -305,12 +327,19 @@ function populatePendingListings(listId) {
                 </div>
             </div>
             <div class="manage-property">
-                <li><div class="approve-btn"><a href="#"><i class="fa-solid fa-check"></i></a>
-                    <span class="approve-tip">Approve Booking Request</span></div></li>
-                <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
-                    <span class="message-tip">Message Tenant</span></div></li>
-                <li><div class="deny-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-xmark"></i></a>
-                    <span class="deny-tip">Deny Booking Request</span></div></li> 
+                <li>
+                <div class="approve-btn"><a href="#" data-action="approve"><i class="fa-solid fa-check"></i></a>
+                    <span class="approve-tip">Approve Booking Request</span></div>
+            </li>
+            <li>
+                <div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
+                    <span class="message-tip">Message Tenant</span></div>
+            </li>
+            <li>
+                <div class="deny-btn"><a href="#" data-action="deny"><i class="fa-solid fa-xmark"></i></a>
+                    <span class="deny-tip">Deny Booking Request</span></div>
+            </li>
+        
             </div>
         </div>
         `;

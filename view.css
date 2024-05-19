@@ -296,10 +296,11 @@ a {
 
 .reviews-container {
     display: flex;
-    overflow-x: auto; 
-    flex-wrap: nowrap; 
+    flex-direction: column; 
+    overflow-y: scroll; 
     margin: 50px;
-    overflow-y: hidden;
+    max-height: 400px; 
+    padding-right: 10px; 
 }
 
 .reviews-container::-webkit-scrollbar{
@@ -533,7 +534,7 @@ button {
     margin-top: 20px;
     max-width: 500px;
     width: 300px;
-    max-height: 450px;
+    max-height: 550px;
     padding: 30px;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 
     5px 5px 9px rgba(94,104,121,0.3);
@@ -603,6 +604,27 @@ button {
     background-color: #6a6a6a; 
 }
 
+.pricing-group{
+    padding: 10px;
+}
+
+.pricing-group li{
+    list-style: none;
+    font-weight: 400;
+    text-align: left;
+}
+
+.price-item{
+    margin: 10px;
+    text-align: left;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between
+}
+
+.pricing-group span{
+    font-weight: normal;
+}
 
 
 /* Success Splash */

@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     editBtns.forEach(button => {
         button.addEventListener('click', function(event) {
-            console.log("CLICK");
             event.preventDefault();
             toggleCalendarVisibility();
         });
@@ -291,3 +290,4 @@ function populatePastListings(listId) {
         propertyList.appendChild(propertyItem);
     }
 }
+

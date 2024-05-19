@@ -579,6 +579,7 @@ a {
     z-index: 999;
     text-align: center;
     font-size: 34px;
+    top: 0;
 }
 
 .day-change-container {
@@ -959,3 +960,6 @@ button {
 .review-buttons .closeBtn-r:hover{
     background-color: #5d5d5d;
 }
+
+
+/* Availability Calendar */

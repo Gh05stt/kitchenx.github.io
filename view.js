@@ -183,7 +183,6 @@ function renderCalendar(month, year) {
     }
 }
 
-
 function changeMonth(change) {
     currentMonth += change;
     if (currentMonth < 0) {
@@ -197,19 +196,61 @@ function changeMonth(change) {
 }
 
 function selectDate(date) {
-    if (!selectedDates.start || (selectedDates.start && selectedDates.end)) {
-        selectedDates.start = date;
-        selectedDates.end = null;
-    } else if (selectedDates.start && !selectedDates.end) {
-        if (date >= selectedDates.start) {
-            selectedDates.end = date;
-        } else {
-            selectedDates.end = selectedDates.start;
-            selectedDates.start = date;
-        }
-    }
-    renderCalendar(currentMonth, currentYear);
+  if (!selectedDates.start || (selectedDates.start && selectedDates.end)) {
+      selectedDates.start = date;
+      selectedDates.end = null;
+  } else if (selectedDates.start && !selectedDates.end) {
+      if (date >= selectedDates.start) {
+          selectedDates.end = date;
+      } else {
+          selectedDates.end = selectedDates.start;
+          selectedDates.start = date;
+      }
+  }
+  renderCalendar(currentMonth, currentYear);
+  calculateSubtotal(); 
 }
+function calculateSubtotal() {
+  if (selectedDates.start && selectedDates.end) {
+      const oneDay = 24 * 60 * 60 * 1000; 
+      const diffDays = Math.round(Math.abs((selectedDates.end - selectedDates.start) / oneDay)) + 1; 
+      const pricePerDay = 1900;
+      const subtotal = pricePerDay * diffDays;
+      document.getElementById('subtotal-price').textContent = `$${subtotal.toLocaleString()}`;
+      updateTotal();
+  } else {
+      document.getElementById('subtotal-price').textContent = `$0`;
+      updateTotal(); 
+  }
+}
+
+function updateTotal() {
+  const subtotal = parseFloat(document.getElementById('subtotal-price').textContent.replace(/[$,]/g, ''));
+  const fees = subtotal * 0.03; 
+  document.getElementById('fees-price').textContent = `$${fees.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+  const discountCode = document.getElementById('discountCode').value;
+  let discount = 0;
+  if (discountCode) {
+      discount = 1500;
+  }
+  document.getElementById('discount-price').textContent = `$${discount.toLocaleString()}`;
+
+  const total = subtotal + fees - discount;
+  document.getElementById('total-price').textContent = `$${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+}
+
+document.getElementById('discountCode').addEventListener('input', updateTotal); 
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+updateTotal(); 
+});
+
+window.onload = function() {
+  renderCalendar(currentMonth, currentYear);
+  calculateSubtotal(); 
+};
+
 
 function isDateInRange(date) {
     if (selectedDates.start && selectedDates.end) {

@@ -24,29 +24,35 @@ document.addEventListener("DOMContentLoaded", function () {
         finalPriceDisplay.textContent = `$${price} daily`;
     });
 
+    uploadThumbnail.addEventListener('click', uploadPhotos);
 
-    facilityTypeSelect.addEventListener("change", function () {
+    function uploadPhotos() {
         const selectedType = facilityTypeSelect.value;
+        if (!selectedType) {
+            alert("Please select a facility type first.");
+            return;
+        }
+    
+        const basePath = `Images/Facilities/${selectedType.replace(/\s+/g, '_')}/`;
+    
+        mainImages.forEach(image => {
+            image.src = selectedType ? `${basePath}1.jpeg` : "Images/grey.jpg";
+        });
+    
         const indexes = [2, 3, 4, 5, 6, 7];
         indexes.sort(() => Math.random() - 0.5);
     
-        mainImages.forEach(image => {
-            image.src = selectedType ? `Images/Facilities/${selectedType.replace(/\s+/g, '_')}/1.jpeg` : "Images/grey.jpg";
-        });
-    
         allThumbnails.forEach((container, idx) => {
             const thumbnails = container.querySelectorAll(".thumbnail");
+    
             thumbnails.forEach((thumbnail, i) => {
-                thumbnail.src = selectedType ? `Images/Facilities/${selectedType.replace(/\s+/g, '_')}/${indexes[i]}.jpeg` : "Images/grey.jpg";
+                if (i < 2) { 
+                    thumbnail.src = selectedType ? `${basePath}${indexes[i]}.jpeg` : "Images/grey.jpg";
+                }
             });
         });
-    
-        // Directly set #upload-pic based on whether a facility type is selected
-        const uploadThumbnail = document.getElementById('upload-pic');
-        uploadThumbnail.src = selectedType ? `Images/Facilities/${selectedType.replace(/\s+/g, '_')}/${indexes[i]}.jpg` : "Images/upload.jpg";
-    
-    });
-    
+    }
+        
     document.querySelectorAll('.day').forEach(day => {
         day.addEventListener('click', function () {
             day.classList.toggle('selected');
