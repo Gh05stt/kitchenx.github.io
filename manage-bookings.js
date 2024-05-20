@@ -30,6 +30,39 @@ document.addEventListener('DOMContentLoaded', function() {
             }, { once: true });
         }
     }
+
+
+    //Reviews
+
+    //Open Review Container
+    document.querySelectorAll('.review-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleReviewVisibility();
+        });
+    });
+
+    //Post Review
+    document.querySelector('.reviews-mask .confirmBtn-r').addEventListener('click', function() {
+        document.querySelector('.reviews-mask').style.visibility = 'hidden';
+    });
+
+    //Cancel Review
+    document.querySelector('.reviews-mask .closeBtn-r').addEventListener('click', function() {
+        document.querySelector('.reviews-mask').style.visibility = 'hidden';
+    });
+    
+    const reviewMask = document.querySelector('.reviews-mask');
+    function toggleReviewVisibility() {
+        const reviewMask = document.querySelector('.reviews-mask');
+        if (reviewMask.style.visibility === 'hidden' || reviewMask.classList.contains('hidden')) {
+            reviewMask.classList.remove('hidden');
+            reviewMask.style.visibility = 'visible';
+        } else {
+            reviewMask.style.visibility = 'hidden';
+            reviewMask.classList.add('hidden');
+        }
+    }
     updateNoBookingsMessage();
 });
 
