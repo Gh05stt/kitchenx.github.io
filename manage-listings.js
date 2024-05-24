@@ -240,7 +240,7 @@ function getRandomRating() {
 }
 
 function getRandomPrice() {
-    const price = Math.floor(Math.random() * 2000) + 500;
+    const price = Math.floor(Math.random() * 900) + 100;
     return `$${price} daily`;
 }
 
@@ -278,7 +278,7 @@ function populateCurrentListings(listId) {
             <div class="property-details">
                 <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
                 <div class="property-description">
-                    <p class="item-location">${getLocation()}, Auckland</p>
+                    <p class="item-location"><span>${getLocation()}, Auckland</span></p>
                     <p class="item-rating">★ ${getRandomRating()}</p>
                     <p class="item-price">${getRandomPrice()}</p>
                     <div class="day-selector-container">
