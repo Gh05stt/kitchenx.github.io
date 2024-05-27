@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded",function(){
-    populateReviews('reviews-container');
+    populatePastReviews('pastreviews');
+    populateLeftReviews('leftreviews');
 
     //Reviews
 
@@ -32,7 +33,7 @@ function toggleReviewVisibility() {
     }
 }
 
-function populateReviews(listId) {
+function populatePastReviews(listId) {
     const reviewList = document.getElementById(listId);
     const minReview = 2;
     const maxReview = 4;
@@ -51,7 +52,7 @@ function populateReviews(listId) {
         <div class="review-details">
             <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
             <div class="review-description">
-                <p class="item-location"><span>${getLocation()}, Auckland</span>  ★ ${getRandomRating()}</p>
+                <p class="item-location"><span>${getLocation()}, Auckland</span>  ★ ${getRandomRating(2,5)}</p>
                 <p class="item-dates">${getRandomPastDates()}</p>
                 <p class="item-price">${getRandomPrice()}</p>
                 <p class="item-content-r">Review: ${getRandomReviewContent()}</p>
@@ -60,13 +61,44 @@ function populateReviews(listId) {
             <li><div class="edit-btn"><a><i class="fa-solid fa-pen-to-square"></i></i></a>
                 <span class="edit-tip">Edit Review</span></div></li>
                 <li><div class="delete-btn"><a href="#" onclick="removeReviewItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
-                    <span class="delete-tip">Remove Booking</span></div></li> 
+                    <span class="delete-tip">Remove Review</span></div></li> 
             </div>
         </div>
         `;
         reviewList.appendChild(reviewItem);
     }
 }
+
+function populateLeftReviews(listId) {
+    const reviewList = document.getElementById(listId);
+    const minReview = 2;
+    const maxReview = 4;
+    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
+    const numReviews = Math.floor(Math.random() * (maxReview - minReview + 1)) + minReview;
+
+    for (let i = 0; i < numReviews; i++) {
+        const randomTypeIndex = Math.floor(Math.random() * types.length);
+        const kitchenType = types[randomTypeIndex];
+        const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
+        const imageNumber = Math.floor(Math.random() * 7) + 1;
+
+        const reviewItem = document.createElement('div');
+        reviewItem.className = 'review-item';
+        reviewItem.innerHTML = `
+        <div class="review-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="review-description">
+                <p class="item-location"><span>${getLocation()}, Auckland</span>  ★ ${getRandomRating(2,5)}</p>
+                <p class="item-dates">${getRandomPastDates()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <p class="item-content-r">Review: ${getRandomProfileContent()}</p>
+            </div>
+        </div>
+        `;
+        reviewList.appendChild(reviewItem);
+    }
+}
+
 
 //Generate stuff for thing
 function getLocation() {
@@ -82,9 +114,11 @@ function getLocation() {
     return locations[Math.floor(Math.random() * locations.length)];
 }
 
-function getRandomRating() {
-    return (Math.random() * (5 - 3) + 3).toFixed(1);
-}
+function getRandomRating(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); 
+  }
 
 function getRandomPastDates() {
     const start = new Date(); 
@@ -100,7 +134,7 @@ function getRandomPastDates() {
 }
 
 function getRandomPrice() {
-    const price = Math.floor(Math.random() * 2000) + 500;
+    const price = Math.floor(Math.random() * 900) + 100;
     return `$${price} daily`;
 }
 
@@ -116,6 +150,14 @@ function removeReviewItem(element) {
 function getRandomReviewContent(){
     const reviews = ["Alot of space", "Easy to communicate with Host",
         "Had everything we needed for our staff"
+    ]
+
+    return reviews[Math.floor(Math.random() * reviews.length)];
+}
+
+function getRandomProfileContent(){
+    const reviews = ["Very friendly", "Easy to communicate with",
+        "Cleaned up before leaving"
     ]
 
     return reviews[Math.floor(Math.random() * reviews.length)];

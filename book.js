@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
   let selectedDates = { start: null, end: null };

@@ -1,0 +1,50 @@
+/* Landing Screen */
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('Fonts/SF-Pro.ttf');
+}
+
+html{
+    background-color: #ff6e86;
+    color: #fff;
+}
+
+body {
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+.welcome-header img{
+    margin-top: 25vh;
+    max-height: 200px;
+    width: auto;
+}
+
+.welcome-text{
+    font-size: 32px;
+}
+
+.mobileBtn{
+    margin-left: 50px;
+}
+
+.welcome-text .desktopBtn, .welcome-text .mobileBtn{
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    border-radius: 25px;
+    font-size: 24px;
+}
+
+.desktopBtn:hover, .mobileBtn:hover{
+    color: #adadad;
+}

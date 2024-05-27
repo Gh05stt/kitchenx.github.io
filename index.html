@@ -2,104 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KitchenX</title>
-    <link rel="stylesheet" href="book.css">
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
-    <link rel="stylesheet" href="splash.css">
-    <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-    <div id="splash-screen">
-        <div id="splash-content">
-            <img src="Images/KitchenX Logo.png" alt="Logo">
-            <p id="splash-text">Sharpening the Processors</p>
-        </div>
+    <div class="welcome-header">
+        <img src="Images/Logo_Invert.png" alt="">
     </div>
-    <script src="splash.js"></script>
-
-    <div class="nav-bar">
-        <div class="logo">
-            <a href="index.html"><img src="Images/KitchenX Logo_Text + Icon.png" alt="KitchenX Logo"></a>
-        </div>
-        <ul>
-            <li><a href="index.html" class="book-link" id="transition">Book</a></li>
-            <li><a href="host.html" class="host-link" id="transition">Host</a></li>
-        </ul>
-        <div class="profile-button">
-            <a href="#" id="profileBtn">Profile</a>
-        </div>
+    <div class="welcome-text">
+        <p>Choose your Platform</p>
+        <a class="desktopBtn" href="book.html">Desktop</a>
+        <a class="mobileBtn" href="Mobile/book-m.html">Mobile</a>
     </div>
-    <div class="profile-wrapper" id="profileWrapper">
-        <div class="profile-container">
-            <ul>
-                <li><a href="404.html">Messages</a></li>
-                <li><a href="manage-bookings.html">Bookings</a></li>
-                <li><a href="manage-profile.html">Manage Profile</a></li>
-                <li id="logout"><a href="logout.html">Log Out</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="search-container">
-        <form action="" class="search-bar">
-            <div class="input-group">
-                <label>Where</label>
-                <input type="text" placeholder="Search Kitchens" name="search">
-            </div>
-            <div class="vl"></div>
-            <div class="input-group">
-                <label>When</label>
-                <input type="text" placeholder="Add Dates" name="dates" id="dates-input" readonly>
-                    <div class="calendar-container" style="display: none;">
-                        <div class="datepicker-container">
-                            <div class="controls">
-                                <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
-                                <span id="monthYear"></span>
-                                <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
-                            </div>
-                            <div id="datepicker" class="calendar"></div>
-                        </div>
-                    </div>
-            </div>
-            <div class="vl"></div>
-
-            <div class="input-group">
-                <label>What</label>
-                <select name="type" placeholder="Choose Facility Type">
-                    <option value="">Choose Facility Type</option>
-                    <option value="Bakery Kitchen">Bakery Kitchen</option>
-                    <option value="Ice Cream Parlor">Ice Cream Parlor</option>
-                    <option value="Pizzeria Kitchen">Pizzeria Kitchen</option>
-                    <option value="Restaurant Kitchen">Restaurant Kitchen</option>
-                    <option value="Catering Kitchen">Catering Kitchen</option>
-                    <option value="Fast Food Kitchen">Fast Food Kitchen</option>
-                </select>
-            </div>            
-            <button type="submit" class="search-icon"><img src="Images/search-icon.png" alt="Search"></button> 
-        </form>
-      </div>
-
-      <div class="filter-by">
-        <p>Sort by:</p>
-        <select name="sortPrice" id="sortPrice">
-            <option value="relevance">Relevance</option>
-            <option value="low-to-high">Price: Low to High</option>
-            <option value="high-to-low">Price: High to Low</option>
-            <option value="highest-review">Reviews: High to Low</option>
-            <option value="lowest-review">Reviews: Low to To High</option> 
-        </select>
-      </div>
-    
-      <script src="sort.js"></script>
-        <div id="item-container">
-        </div>
-
-    <div class="footer">
-        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
-    </div>
-        
-        <script src="book.js"></script>
-        <script src="profile-container.js"></script>
 </body>
 </html>
