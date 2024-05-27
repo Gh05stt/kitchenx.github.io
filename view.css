@@ -289,21 +289,21 @@ a {
 }
 
 /* Reviews */
-#reviews-header{
+#reviews-header {
     margin: 50px;
     font-size: 24px;
 }
 
 .reviews-container {
     display: flex;
-    flex-direction: column; 
-    overflow-y: scroll; 
+    flex-direction: row; 
+    overflow-x: none; 
     margin: 50px;
     max-height: 400px; 
-    padding-right: 10px; 
+    padding-bottom: 10px; 
 }
 
-.reviews-container::-webkit-scrollbar{
+.reviews-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -322,7 +322,7 @@ a {
     5px 5px 9px rgba(94,104,121,0.3);
 }
 
-.reviews-container .content{
+.reviews-container .content {
     margin: 0px;
 }
 
