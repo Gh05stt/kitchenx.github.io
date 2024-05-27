@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (let i = 0; i < 30; i++) {
         const randomReviewData = getRandomElement(reviewsData);
         const { profilePhoto, name, reviewText } = randomReviewData;
-        const reviewRating = getRandomRate(6); 
+        const reviewRating = getRandomRate(0,6); 
 
         const review = document.createElement('div');
         review.classList.add('review');
@@ -137,8 +137,8 @@ function getRandomRating() {
   return (Math.random() * 4 + 1).toFixed(1); 
 }
 
-function getRandomRate(max) {
-  return Math.floor(Math.random() * max);
+function getRandomRate(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 
