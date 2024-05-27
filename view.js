@@ -138,9 +138,10 @@ function getRandomRating() {
 }
 
 function getRandomRate(min, max) {
-  return Math.random() * (max - min) + min;
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); 
 }
-
 
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
