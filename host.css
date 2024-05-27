@@ -201,7 +201,6 @@ a {
 
 .input-group input {
     text-align: left;
-    height: auto;
 }
 
 .search-bar input {
@@ -250,9 +249,8 @@ a {
 .description-container .input-group input {
     background-color: transparent;
     border: none;
-    height: auto;
     height: 300px;
-    text-align: left;
+    text-align: start;
     vertical-align: top;
 }
 
@@ -723,3 +721,70 @@ a {
     font-weight: 300;
 }
 
+
+/* Title input */
+.input-group {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    margin-right: 10px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 5px; 
+}
+
+.input-group textarea {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px; /* Adjust as needed for proper spacing */
+    box-sizing: border-box; /* Include padding in the height calculation */
+    resize: vertical; /* Allow vertical resizing */
+    overflow: auto; /* Ensure scrollbar appears when needed */
+    min-height: 290px; /* Minimum height */
+}
+
+/* Description container */
+.description-container .input-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.description-container .input-group textarea {
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px; 
+    box-sizing: border-box; 
+    resize: none; 
+    overflow: auto; 
+    min-height: 290px; 
+    background-color: transparent;
+    border: none;
+}
+
+.description-container .amenities-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.description-container .amenities-group textarea{
+    width: 100%;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px; 
+    box-sizing: border-box; 
+    resize: none;
+    overflow: auto; 
+    min-height: 90px;
+    background-color: transparent;
+    border: none;
+}

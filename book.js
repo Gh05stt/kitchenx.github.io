@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function getRandomPrice() {
-    const price = Math.floor(Math.random() * 2000) + 500;
+    const price = Math.floor(Math.random() * 900) + 100;
     return `$${price} daily`;
   }
 

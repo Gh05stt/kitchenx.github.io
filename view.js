@@ -41,15 +41,6 @@ function getRandomRating() {
 function getRandomReviews() {
   return (Math.floor(Math.random() * 301));
 }
-function updateImages(kitchenType) {
-  const formattedType = kitchenType.replace(/ /g, '_'); 
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  thumbnails.forEach((thumbnail, index) => {
-    const newPath = `Images/Facilities/${formattedType}/${index + 1}.jpeg`;
-    thumbnail.src = newPath;
-    thumbnail.alt = `Image of ${formattedType} ${index + 1}`;
-  });
-}
 
 document.addEventListener('DOMContentLoaded', function() {
   const prevMonthBtn = document.getElementById('prevMonth');
@@ -80,11 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
       let totalRating = getRandomRating(); 
       let totalReviews = getRandomReviews();
 
-
       for (let i = 0; i < 30; i++) {
         const randomReviewData = getRandomElement(reviewsData);
         const { profilePhoto, name, reviewText } = randomReviewData;
-        const reviewRating = getRandomRate(0,6); 
+        const reviewRating = getRandomRate(0, 6); 
 
         const review = document.createElement('div');
         review.classList.add('review');
@@ -114,23 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewsContainer.appendChild(review);
       }
 
-      reviews.firstChild.textContent = `★ ${totalRating}`; 
-      reviewsLink.textContent = `${totalReviews} Reviews`; 
+      document.querySelector('.reviews .reviews-link').textContent = `${totalReviews} Reviews`;
+      document.querySelector('.reviews').firstChild.textContent = `★ ${totalRating}`; 
     })
     .catch(error => {
       console.error('Error fetching reviews:', error);
     });
 
-    publishBtn.addEventListener('click', function (event) {
-      console.log("CLICK");
-        event.preventDefault();
-        successSplash.style.visibility = "visible";
-        confirmPublishContainer.style.visibility = "hidden";
-        setTimeout(function() {
-            window.location.reload(true);
-        }, 2500);
-    });
-
+  publishBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    successSplash.style.visibility = "visible";
+    confirmPublishContainer.style.visibility = "hidden";
+    setTimeout(function() {
+      window.location.reload(true);
+    }, 2500);
+  });
 });
 
 function getRandomRating() {
@@ -148,84 +136,85 @@ let currentYear = new Date().getFullYear();
 let selectedDates = { start: null, end: null };
 
 window.onload = function() {
-    const prevMonthBtn = document.getElementById('prevMonth');
-    const nextMonthBtn = document.getElementById('nextMonth');
+  const prevMonthBtn = document.getElementById('prevMonth');
+  const nextMonthBtn = document.getElementById('nextMonth');
 
-    prevMonthBtn.onclick = () => changeMonth(-1);
-    nextMonthBtn.onclick = () => changeMonth(1);
+  prevMonthBtn.onclick = () => changeMonth(-1);
+  nextMonthBtn.onclick = () => changeMonth(1);
 
-    renderCalendar(currentMonth, currentYear);
+  renderCalendar(currentMonth, currentYear);
 };
 
 function renderCalendar(month, year) {
-    const container = document.getElementById('datepicker');
-    container.innerHTML = ''; 
+  const container = document.getElementById('datepicker');
+  container.innerHTML = ''; 
 
-    const monthYearLabel = document.getElementById('monthYear');
-    monthYearLabel.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+  const monthYearLabel = document.getElementById('monthYear');
+  monthYearLabel.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
 
-    const today = new Date();
-    const todayDateString = today.toDateString();
+  const today = new Date();
+  const todayDateString = today.toDateString();
 
-    for (let day = 1; day <= new Date(year, month + 1, 0).getDate(); day++) {
-        const dayElem = document.createElement('div');
-        dayElem.textContent = day;
-        const fullDate = new Date(year, month, day);
-        dayElem.onclick = () => selectDate(fullDate);
-        container.appendChild(dayElem);
-        
-        if (fullDate.toDateString() === selectedDates.start?.toDateString()) {
-            dayElem.classList.add('start');
-        } else if (fullDate.toDateString() === selectedDates.end?.toDateString()) {
-            dayElem.classList.add('end');
-        } else if (isDateInRange(fullDate)) {
-            dayElem.classList.add('range');
-        }
-
-        if (fullDate.toDateString() === todayDateString) {
-            dayElem.classList.add('today');
-        }
+  for (let day = 1; day <= new Date(year, month + 1, 0).getDate(); day++) {
+    const dayElem = document.createElement('div');
+    dayElem.textContent = day;
+    const fullDate = new Date(year, month, day);
+    dayElem.onclick = () => selectDate(fullDate);
+    container.appendChild(dayElem);
+    
+    if (fullDate.toDateString() === selectedDates.start?.toDateString()) {
+      dayElem.classList.add('start');
+    } else if (fullDate.toDateString() === selectedDates.end?.toDateString()) {
+      dayElem.classList.add('end');
+    } else if (isDateInRange(fullDate)) {
+      dayElem.classList.add('range');
     }
+
+    if (fullDate.toDateString() === todayDateString) {
+      dayElem.classList.add('today');
+    }
+  }
 }
 
 function changeMonth(change) {
-    currentMonth += change;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    } else if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    renderCalendar(currentMonth, currentYear);
+  currentMonth += change;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  } else if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar(currentMonth, currentYear);
 }
 
 function selectDate(date) {
   if (!selectedDates.start || (selectedDates.start && selectedDates.end)) {
-      selectedDates.start = date;
-      selectedDates.end = null;
+    selectedDates.start = date;
+    selectedDates.end = null;
   } else if (selectedDates.start && !selectedDates.end) {
-      if (date >= selectedDates.start) {
-          selectedDates.end = date;
-      } else {
-          selectedDates.end = selectedDates.start;
-          selectedDates.start = date;
-      }
+    if (date >= selectedDates.start) {
+      selectedDates.end = date;
+    } else {
+      selectedDates.end = selectedDates.start;
+      selectedDates.start = date;
+    }
   }
   renderCalendar(currentMonth, currentYear);
   calculateSubtotal(); 
 }
+
 function calculateSubtotal() {
   if (selectedDates.start && selectedDates.end) {
-      const oneDay = 24 * 60 * 60 * 1000; 
-      const diffDays = Math.round(Math.abs((selectedDates.end - selectedDates.start) / oneDay)) + 1; 
-      const pricePerDay = 1900;
-      const subtotal = pricePerDay * diffDays;
-      document.getElementById('subtotal-price').textContent = `$${subtotal.toLocaleString()}`;
-      updateTotal();
+    const oneDay = 24 * 60 * 60 * 1000; 
+    const diffDays = Math.round(Math.abs((selectedDates.end - selectedDates.start) / oneDay)) + 1; 
+    const pricePerDay = 1900;
+    const subtotal = pricePerDay * diffDays;
+    document.getElementById('subtotal-price').textContent = `$${subtotal.toLocaleString()}`;
+    updateTotal();
   } else {
-      document.getElementById('subtotal-price').textContent = `$0`;
-      updateTotal(); 
+    document.getElementById('subtotal-price').textContent = `$0`;
+    updateTotal(); 
   }
 }
 
@@ -237,7 +226,7 @@ function updateTotal() {
   const discountCode = document.getElementById('discountCode').value;
   let discount = 0;
   if (discountCode) {
-      discount = 1500;
+    discount = 1500;
   }
   document.getElementById('discount-price').textContent = `$${discount.toLocaleString()}`;
 
@@ -248,7 +237,7 @@ function updateTotal() {
 document.getElementById('discountCode').addEventListener('input', updateTotal); 
 
 document.getElementById('submitBtn').addEventListener('click', function() {
-updateTotal(); 
+  updateTotal(); 
 });
 
 window.onload = function() {
@@ -256,12 +245,11 @@ window.onload = function() {
   calculateSubtotal(); 
 };
 
-
 function isDateInRange(date) {
-    if (selectedDates.start && selectedDates.end) {
-        return date > selectedDates.start && date < selectedDates.end;
-    }
-    return false;
+  if (selectedDates.start && selectedDates.end) {
+    return date > selectedDates.start && date < selectedDates.end;
+  }
+  return false;
 }
 
 document.getElementById('bookButton').addEventListener('click', function() {

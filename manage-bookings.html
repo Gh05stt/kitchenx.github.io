@@ -31,13 +31,13 @@
             </ul>
         </div>
     </div>
-        
+    
     <!--Reviews-->
     <div class="reviews-mask" style="visibility: hidden;">
         <p>Leave a Review</p>
         <div class="review-container">
             <div class="review-input">
-                <input type="text" placeholder="Enter review">
+                <textarea placeholder="Enter review"></textarea>
             </div>
     
             <div class="review-buttons">
@@ -47,30 +47,7 @@
         </div>
     </div>
 
-    <!--Availability calendar-->
-
-    
-    <!--Upcoming-->
-
-    <div class="property-header">
-        <p>Upcoming Bookings</p>
-    </div>
-
-    <div class="property-wrapper">
-        <div class="property-list" id="upcomingList"></div>
-    </div>
-
-    <!--Past-->
-    <div class="property-header">
-        <p>Past Bookings</p>
-    </div>
-    
-    <div class="property-wrapper">
-        <div class="property-list" id="pastList"></div>
-    </div>
-
     <!--Date picker-->
-
     <div class="calendar-mask" style="visibility: hidden;">
         <p>Request Date Change</p>
         <div class="calendar-container">
@@ -82,26 +59,42 @@
                 </div>
                 <div id="datepicker" class="calendar"></div>
                 <div class="calendar-buttons">
-                    <a href="#" class="confirmBtn">Confirm</a>
-                    <a href="#" class="cancelBtn">Cancel</a>
+                    <a href="#" class="confirmBtn-c">Confirm</a>
+                    <a href="#" class="closeBtn">Cancel</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="property-wrapper">
-        <div class="property-list" id="propertyList">
-
+    <!--Bookings-->
+    <div class="property-columns">
+        <!--Pending-->
+        <div class="property-column">
+            <div class="property-header">
+                <p>Pending Approval</p>
+            </div>
+            <div class="property-wrapper" id="pendingList">
+            </div>
+        </div>
+    
+        <!--Upcoming-->
+        <div class="property-column">
+            <div class="property-header">
+                <p>Upcoming Bookings</p>
+            </div>
+            <div class="property-wrapper" id="upcomingList"></div>
+        </div>
+        
+        <!--Past-->
+        <div class="property-column">
+            <div class="property-header">
+                <p>Past Bookings</p>
+            </div>
+            <div class="property-wrapper" id="pastList"></div>
         </div>
     </div>
-    
-    
 
-    <div class="footer">
-        <a href="#">© <span>KitchenX</span>, Inc. 2024</a>
-    </div>
-
-    <script src="profile-container.js"></script>
     <script src="manage-bookings.js"></script>
+    <script src="profile-container.js"></script>
 </body>
 </html>

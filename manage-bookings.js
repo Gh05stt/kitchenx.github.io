@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
+    populatePendingListings('pendingList');
     populateUpcomingListings('upcomingList');
     populatePastListings('pastList');
-    const cancelBtn = document.querySelector('.cancelBtn');
+    
     const calendarMask = document.querySelector('.calendar-mask');
-    const editBtns = document.querySelectorAll('.upcoming-btn a'); 
+    const cancelBtn = document.querySelector('.calendar-mask .closeBtn');
+    const editBtns = document.querySelectorAll('.upcoming-btn a');
 
-    cancelBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        toggleCalendarVisibility();
-    });
-
-    editBtns.forEach(button => {
-        button.addEventListener('click', function(event) {
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function(event) {
             event.preventDefault();
             toggleCalendarVisibility();
         });
-    });
+    }
+
+    if (editBtns.length > 0) {
+        editBtns.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                toggleCalendarVisibility();
+            });
+        });
+    }
 
     function toggleCalendarVisibility() {
         if (calendarMask.classList.contains('hidden')) {
@@ -30,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }, { once: true });
         }
     }
-
 
     //Reviews
 
@@ -51,10 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.reviews-mask .closeBtn-r').addEventListener('click', function() {
         document.querySelector('.reviews-mask').style.visibility = 'hidden';
     });
-    
+
     const reviewMask = document.querySelector('.reviews-mask');
     function toggleReviewVisibility() {
-        const reviewMask = document.querySelector('.reviews-mask');
         if (reviewMask.style.visibility === 'hidden' || reviewMask.classList.contains('hidden')) {
             reviewMask.classList.remove('hidden');
             reviewMask.style.visibility = 'visible';
@@ -127,7 +131,7 @@ function getRandomRating() {
 }
   
 function getRandomPrice() {
-    const price = Math.floor(Math.random() * 2000) + 500;
+    const price = Math.floor(Math.random() * 900) + 100;
     return `$${price} daily`;
 }
 
@@ -208,8 +212,6 @@ function selectDate(date) {
   updateDateInput();
 }
 
-
-
 function updateDateInput() {
   const datesInput = document.getElementById('dates-input');
   if (selectedDates.start) {
@@ -238,6 +240,47 @@ function getRandomPastDates() {
     };
 
     return `${formatDate(end)} - ${formatDate(start)}`;
+}
+
+//Pending
+function populatePendingListings(listId) {
+    const propertyList = document.getElementById(listId);
+    const minProperties = 1;
+    const maxProperties = 4;
+    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
+    const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
+
+    for (let i = 0; i < numProperties; i++) {
+        const randomTypeIndex = Math.floor(Math.random() * types.length);
+        const kitchenType = types[randomTypeIndex];
+        const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
+        const imageNumber = Math.floor(Math.random() * 7) + 1;
+
+        const propertyItem = document.createElement('div');
+        propertyItem.className = 'property-item';
+        propertyItem.innerHTML = `
+        <div class="property-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="property-description">
+                <p class="item-location"><span>${getLocation()}, Auckland</span></p>
+                <p class="item-rating"><span>Tenant Rating:</span> ★ ${getRandomRating()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <div style="display: flex; align-items: center;">
+                    <p class="item-dates">${getRandomDates()}</p>
+                </div>
+            </div>
+            <div class="manage-property">
+                <li><div class="upcoming-btn" id="editDates"><a><i class="fa-solid fa-pen-to-square"></i></a>
+                    <span class="upcoming-tip">Edit Booking</span></div></li>
+                <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
+                    <span class="message-tip">Message Tenant</span></div></li>
+                <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
+                    <span class="trash-tip">Cancel Booking</span></div></li> 
+            </div>
+        </div>
+        `;
+        propertyList.appendChild(propertyItem);
+    }
 }
 
 
