@@ -208,7 +208,7 @@ function calculateSubtotal() {
   if (selectedDates.start && selectedDates.end) {
     const oneDay = 24 * 60 * 60 * 1000; 
     const diffDays = Math.round(Math.abs((selectedDates.end - selectedDates.start) / oneDay)) + 1; 
-    const pricePerDay = 1900;
+    const pricePerDay = 500;
     const subtotal = pricePerDay * diffDays;
     document.getElementById('subtotal-price').textContent = `$${subtotal.toLocaleString()}`;
     updateTotal();
@@ -284,3 +284,4 @@ document.getElementById('submitBtn').addEventListener('click', function() {
     alert('Please fill out all required fields and select a date range.');
   }
 });
+

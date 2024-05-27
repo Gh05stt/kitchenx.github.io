@@ -43,21 +43,6 @@
 
     <!--Confirmation overlay-->
     <div class="confirmation-mask" style="visibility: hidden;">
-        <!--Calendar-->
-        <div class="calendar-container">
-            <div class="calendar-text">
-                <p>Select Dates</p>
-            </div>
-            <div class="datepicker-container">
-                <div class="controls">
-                    <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span id="monthYear"></span>
-                    <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div id="datepicker" class="calendar"></div>
-            </div>
-        </div>
-
         <!--Payment-->
         <div class="payment-c">
             <div class="payment-text">
@@ -112,7 +97,8 @@
 
     <div class="content">
         <div class="description-container">
-            <p class="title">Ice Cream Parlour</p> 
+            <p class="title" id="kitchenType">Ice Cream Parlour</p> 
+            <p class="price">$500 daily</p>
             <p class="reviews">★ 4.9 <a href="#reviews-header" class="reviews-link">42 Reviews</a></p> 
             <div class="profile">
                 <p class="profile-icon">H</p>
@@ -146,11 +132,49 @@
         </div>
     </div>
 
+    <div class="amenities-container">
+        <!--Calendar-->
+        <div class="calendar-container">
+            <div class="calendar-text">
+                <p>Select Dates</p>
+            </div>
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+            </div>
+        </div>
+
+        <!--
+        <div class="amenities-c">
+            <div class="amenities-text">
+                <p>Amenities</p>
+            </div>
+            <div class="amenities-list">
+                <li><img src="Images/KitchenX Logo_Icon.png" alt="Bathroom Icon" class="icon"> Bathroom</li>
+                <li><img src="Images/KitchenX Logo_Icon.png" alt="Oven Icon" class="icon"> Oven</li>
+                <li><img src="Images/KitchenX Logo_Icon.png" alt="Pizza Oven Icon" class="icon"> Pizza Oven</li>
+            </div>
+        </div> -->
+
+        <div class="amenities-c">
+            <div class="amenities-text">
+                <p>Amenities</p>
+            </div>
+            <ul class="amenities-list" id="amenitiesList">
+                <!-- Amenities will be populated here by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
     <p id="reviews-header">Reviews</p>
     <div class="reviews-container">
     </div>
     <div class="footer">
-        <p class="price">$1,900 daily</p>
+        <p class="price">$500 daily</p>
         <div class="button-container">
             <button class="cancel"><a href="index.html">Cancel</a></button>
             <button class="book" id="bookButton">Book</button>
@@ -159,5 +183,6 @@
     
     <script src="view.js"></script> 
     <script src="profile-container.js"></script>
+    <script src="amenities.js"></script>
 </body>
 </html>
