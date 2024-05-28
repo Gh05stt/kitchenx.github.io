@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.className = 'item';
         item.innerHTML = `
             <div class="image-placeholder" id="transition" style="background-image: url('../Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div>
-            <div class="item-name"><a href="view-facility.html">${name}</a></div>
+            <div class="item-name"><a href="view-m.html">${name}</a></div>
             <div class="item-rating">${rating} ★</div>
             <div class="item-price">${price}</div>
         `;

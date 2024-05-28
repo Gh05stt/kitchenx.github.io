@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+@font-face {
+    font-family: 'SF';
+    src: url('../Fonts/SF-Pro.ttf');
+}
+
+body {
+    background-color: #000;
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+.screen-container {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.phone-screen {
+    height: 100%;
+    width: 420px;
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: scroll;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Nav Bar */
+.nav-bar {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 10vh;
+}
+
+.nav-bar .logo img {
+    max-width: 75px;
+    max-height: 75px;
+    flex-grow: 0;
+}
+
+/* Content */
+.image-gallery img{
+    max-height: 40vh;
+}
+
+
+.description-container, .gallery-container {
+    flex: 1;
+    margin: 20px;
+}
+
+.description-container .title{
+    font-size: 34px;
+    margin: 0;
+}
+
+.description-container .price{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #2e2e2e;
+}
+
+.description-container .reviews-link{
+    text-decoration: underline;
+}
+
+.content .description {
+    max-width: 40vw;
+}
+
+.content {
+    min-height: 100%;
+    padding-bottom: 10px; 
+    box-sizing: border-box; 
+}
+
+.profile::before{
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #d1d1d1;
+    position: absolute;
+    bottom: 27vh;
+    left: 10px; 
+    right: 10px; 
+    border-radius: 25px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    font-size: 24px;
+    color: #000; 
+    margin-right: 20px;
+  }
+
+.profile-text{
+    color: #000;
+}
+
+.host-name{
+    color:#000;
+}
+
+.profile .years-hosting{
+    color: #737373;
+}
+
+
+/* Amenities */
+.amenities-container{
+    position: relative;
+    text-align: center;
+}
+
+.amenities-container p{
+    font-size: 32px;
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+
+.amenities-c{
+    text-align: center;
+}
+
+.amenities-c ul{
+    padding: 0;
+    margin-left: 30px;
+    text-align: left;
+}
+
+.amenities-c li{
+    list-style: none;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.icon {
+    width: 38px;
+    height: 38px; 
+    vertical-align: middle; 
+    margin-right: 4px; 
+    margin-left: 0;
+}
+
+
+/* Calendar */
+.calendar-container{
+    flex: 1 1 calc(40% - 10px); 
+    max-width: calc(40% - 10px);
+    max-width: 400px;
+    margin: 30px;
+    font-size: 18px;
+}
+
+.calendar-container p, .amenities-text{
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.datepicker-container {
+    box-shadow: 5px 5px 9px rgba(94,104,121,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.calendar div {
+    font-size: 14px;
+    padding: 5px;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.05), 
+    inset 1px 1px 3px rgba(94,104,121,0.15); 
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar div.selected {
+    background-color: #9ecaed;
+    color: white;
+}
+
+.calendar div.range {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.start,
+.calendar div.end {
+    background-color: #ff395c;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.calendar div.today {
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.calendar div.today.start,
+.calendar div.today.end {
+    border: none;
+    background-color: #ff395c; 
+    color: white;
+}
+
+/* Reviews */
+.reviews-header{
+    font-size: 24px;
+    text-align: center;
+}
+
+
+/* Reviews */
+#reviews-header {
+    margin: 50px;
+    font-size: 24px;
+}
+
+.reviews-container {
+    margin: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-radius: 25px;
+    padding: 25px;
+    outline: none;
+    border: none;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 
+    5px 5px 9px rgba(94,104,121,0.3);
+}
+
+.review .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review .author-name {
+    font-weight: bold;
+}
+
+.review .rating {
+    color: #000;
+}
+
+.review .content {
+    margin-top: 10px;
+}
+
+/*Confirm*/
+
+.confirmation-mask {
+    position: fixed; 
+    top: 0;
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 420px;
+    display: flex;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;  
+    z-index: 9;
+    opacity: 0;  
+    visibility: hidden; 
+    transition: visibility 0s 0.5s, opacity 0.5s linear;  
+}
+
+.confirmation-mask.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s linear;  
+}
+
+
+.confirmation-mask .payment-text{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.confirmation-mask .calendar-text{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.confirmation-mask .calendar-container{
+    max-width: 500px;
+}
+
+.confirmation-mask .calendar-container{
+    margin-top: 20px;
+}
+
+/* Payment */
+.payment-container{
+    margin: 50px;
+    margin-top: 20px;
+    max-width: 500px;
+    width: 300px;
+    max-height: 550px;
+    padding: 30px;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 
+    5px 5px 9px rgba(94,104,121,0.3);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500; 
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.submit-button {
+    background-color: #ff6e86;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40%;
+    font-size: 16px;
+    height: 50px;
+}
+
+.submit-button a{
+    color: #fff;
+}
+
+.submit-button:hover {
+    background-color: #ff395c; 
+}
+
+.cancel-button {
+    height: 50px;
+    background-color: #787878;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 40%;
+    font-size: 16px;
+}
+
+.cancel-button:hover {
+    background-color: #6a6a6a; 
+}
+
+.pricing-group{
+    padding: 10px;
+}
+
+.pricing-group li{
+    list-style: none;
+    font-weight: 400;
+    text-align: left;
+}
+
+.price-item{
+    margin: 10px;
+    text-align: left;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between
+}
+
+.pricing-group span{
+    font-weight: normal;
+}
+
+
+
+/* Footer */
+.footer::before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: #d1d1d1;
+    position: absolute;
+    bottom: 60px; 
+    left: 10px; 
+    right: 10px; 
+    border-radius: 25px;
+}
+
+
+.footer {
+    height: 60px; 
+    width: 100%;
+    position: relative; 
+    bottom: 0;
+    left: 0px;
+    color: #000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .price{
+    padding-left: 25px;
+    font-size: 20px;
+}
+
+.button-container {
+    padding-right: 25px;
+    display: flex;
+    gap: 35px;
+    height: 40px;
+    width: auto;
+}
+  
+.button-container button{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 22px;
+}
+
+.button-container .book{
+    width: 100px;
+    background-color: #ff6e86;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
