@@ -30,3 +30,11 @@ p{
     font-size: 22px;
 }
 
+#logout-content a{
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+#logout-content a:hover{
+    color: #adadad;
+}
