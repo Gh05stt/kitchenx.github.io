@@ -124,6 +124,7 @@ a {
 .property-columns {
     margin: 40px;
     margin-top: 20px;
+    margin-bottom: 100px;
 }
 
 /* Individual column */
@@ -310,134 +311,6 @@ a {
 }
 
 
-/* Day Change */
-.c-mask{
-    display: none;
-    border-radius: 25px;
-    width: 420px;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.99);
-    z-index: 999;
-    text-align: center;
-    font-size: 34px;
-    top: 0;
-    padding-top: 50px;
-}
-
-.day-change-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.day-c {
-    font-size: 16px;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
-    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), 
-                inset 1px 1px 3px rgba(94, 104, 121, 0.15); 
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.day-c p {
-    margin: 0;
-    font-size: 16px;
-}
-
-.day-c.selected {
-    background-color: #ff395c;
-    color: white;
-}
-
-/* Price Change*/
-
-.price-selector h1{
-    font-weight: 400;
-    font-size: 48px;
-    text-align: center;
-}
-
-.price-selector{
-    display: grid;
-    justify-content: space-around;
-}
-
-.price-selector input{
-    font-size: 32px;
-    border-style: none;
-    text-align: center;
-}
-
-.price-input-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.currency-symbol {
-    position: absolute;
-    left: 10px;
-    font-size: 34px;
-    color: #000;
-}
-
-.price-input-container input[type="number"] {
-    font-size: 32px;
-    border-style: none;
-    border-radius: 30px;
-    text-align: center;
-    height: 40px;
-    background-color: #f3f3f3;
-}
-
-.price-input-container input[type="number"]::placeholder {
-    color: #ccc;
-}
-
-
-/* Confirm buttons */
-
-
-.publish-confirm-buttons {
-    margin-top: 30px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.publish-confirm-buttons a {
-    border-radius: 45px;
-    padding: 15px;
-    color: #fff;
-}
-
-.publish-confirm-buttons .confirmBtn {
-    text-align: center;
-    width: 100px;
-    font-size: 24px;
-    background-color: #ff6e86;
-    transition: all 0.2s ease-in-out;
-}
-
-.publish-confirm-buttons .cancelBtn {
-    text-align: center;
-    width: 100px;
-    font-size: 24px;
-    margin-left: 15px;
-    background-color: #787878;
-    transition: all 0.2s ease-in-out;
-}
-
 
 /* Footer */
 
@@ -478,7 +351,8 @@ a {
     border-radius: 25px;
 }
 
-.f-search, .f-listings, .f-inbox, .f-profile{
+
+.f-search, .f-bookings, .f-inbox, .f-profile{
     margin-top: 20px;
     display: grid;
     text-align: center;

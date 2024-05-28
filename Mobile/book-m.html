@@ -40,7 +40,6 @@
                     <option value="Fast_Food_Kitchen">Fast Food Kitchen</option>
                 </select>
             </div>
-
             <div class="filter-by">
                 <p>Sort by:</p>
                 <select name="sortPrice" id="sortPrice">
@@ -52,6 +51,20 @@
                 </select>
               </div>
 
+              <p id="dates-input"><span id="dates-when">When:</span> <span id="date-range"></span></p>
+              <div class="c-container">
+                  <div class="calendar-container" style="display: none;">
+                      <div class="datepicker-container">
+                          <div class="controls">
+                              <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                              <span id="monthYear"></span>
+                              <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                          </div>
+                          <div id="datepicker" class="calendar"></div>
+                      </div>
+                  </div>
+              </div>
+
             <div id="item-container"></div>
 
             <div class="footer">
@@ -59,9 +72,9 @@
                     <a href="book-m.html"><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a class="ft" href="book-m.html">Search</a>
                 </div>
-                <div class="f-listings">
-                    <a href="listings-m.html"><i class="fa-regular fa-calendar"></i></a>
-                    <a class="ft" href="listings-m.html">Listings</a>
+                <div class="f-bookings">
+                    <a href="bookings-m.html"><i class="fa-regular fa-calendar"></i></a>
+                    <a class="ft" href="bookings-m.html">Bookings</a>
                 </div>
                 <div class="f-inbox">
                     <a href="404-m.html"><i class="fa-regular fa-message"></i></a>

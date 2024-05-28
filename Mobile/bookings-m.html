@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>KitchenX</title>
-    <link rel="stylesheet" href="listings-m.css">
+    <link rel="stylesheet" href="bookings-m.css">
     <link rel="icon" type="image/x-icon" href="../Images/KitchenX Logo.png">
     <link rel="stylesheet" href="../splash.css">
     <script src="https://kit.fontawesome.com/3c79a80620.js" crossorigin="anonymous"></script>
@@ -19,38 +19,7 @@
                     <a id="logoLink" href="#"><img src="../Images/KitchenX Logo.png" alt="Logo"></a>
                 </div>
                 <div class="nav-title">
-                    <p>Listings</p>
-                </div>
-            </div>
-
-
-            <!--Change mask-->
-            <div class="c-mask hidden">
-                <!-- Day Selector -->
-                <div class="day-title">
-                    <p>Change Availability</p>
-                </div>
-                <div class="day-change-container">
-                    <div class="day-c" data-day="Monday"><p>Mon</p></div>
-                    <div class="day-c" data-day="Tuesday"><p>Tue</p></div>
-                    <div class="day-c" data-day="Wednesday"><p>Wed</p></div>
-                    <div class="day-c" data-day="Thursday"><p>Thu</p></div>
-                    <div class="day-c" data-day="Friday"><p>Fri</p></div>
-                    <div class="day-c" data-day="Saturday"><p>Sat</p></div>
-                    <div class="day-c" data-day="Sunday"><p>Sun</p></div>
-                </div>
-                
-                <!--Price change-->
-                <div class="price-selector">
-                    <h1>Select price</h1>
-                    <div class="price-input-container">
-                        <span class="currency-symbol">$</span>
-                        <input type="number" placeholder="Enter daily price" name="price">
-                    </div>
-                    <div class="publish-confirm-buttons">
-                        <a class="cancelBtn">Back</a>
-                        <a class="confirmBtn">Confirm</a>
-                    </div>
+                    <p>Bookings</p>
                 </div>
             </div>
 
@@ -68,15 +37,7 @@
             <!--Currently Listed-->
             <div class="property-column">
                 <div class="property-header">
-                    <p>Currently Listed</p>
-                </div>
-                <div class="property-wrapper" id="currentList"></div>
-            </div>
-            
-            <!--Upcoming-->
-            <div class="property-column">
-                <div class="property-header">
-                    <p>Upcoming Bookings</p>
+                    <p>Upcoming</p>
                 </div>
                 <div class="property-wrapper" id="upcomingList"></div>
             </div>
@@ -91,9 +52,13 @@
         </div>
         
         <div class="footer">
-            <div class="f-listings">
-                <a href="listings-m.html"><i class="fa-regular fa-calendar"></i></a>
-                <a class="ft" href="listings-m.html">Listings</a>
+            <div class="f-search">
+                <a href="book-m.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a class="ft" href="book-m.html">Search</a>
+            </div>
+            <div class="f-bookings">
+                <a href="bookings-m.html"><i class="fa-regular fa-calendar"></i></a>
+                <a class="ft" href="bookings-m.html">Bookings</a>
             </div>
             <div class="f-inbox">
                 <a href="404-m.html"><i class="fa-regular fa-message"></i></a>
@@ -106,6 +71,6 @@
         </div>
     <!--END OF SCREEN-->
     </div></div>
-    <script src="listings-m.js"></script>
+    <script src="bookings-m.js"></script>
 </body>
 </html>

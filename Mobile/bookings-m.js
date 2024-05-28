@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function(){
-    populateCurrentListings('currentList');
     populatePendingListings('pendingList');
     populateUpcomingListings('upcomingList');
     populatePastListings('pastList');
@@ -332,6 +331,46 @@ function getRandomName() {
         "Krishant Maharaj", "Caleb Simmons", "Chuanze Zhao"
       ];
     return names[Math.floor(Math.random() * names.length)];
+}
+
+//Pending
+
+function populatePendingListings(listId) {
+    const propertyList = document.getElementById(listId);
+    const minProperties = 1;
+    const maxProperties = 4;
+    const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
+    const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
+
+    for (let i = 0; i < numProperties; i++) {
+        const randomTypeIndex = Math.floor(Math.random() * types.length);
+        const kitchenType = types[randomTypeIndex];
+        const imagePath = `../Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
+        const imageNumber = Math.floor(Math.random() * 7) + 1;
+
+        const propertyItem = document.createElement('div');
+        propertyItem.className = 'property-item';
+        propertyItem.innerHTML = `
+        <div class="property-details">
+            <a href="view-facility.html"><img class="item-img" src="${imagePath}${imageNumber}.jpeg" alt="Property in ${kitchenType}"></a>
+            <div class="property-description">
+                <p class="item-location"><span>${getLocation()}, Auckland</span></p>
+                <p class="item-rating"><span>Tenant Rating:</span> ★ ${getRandomRating()}</p>
+                <p class="item-price">${getRandomPrice()}</p>
+                <div style="display: flex; align-items: center;">
+                    <p class="item-dates">${getRandomDates()}</p>
+                </div>
+            </div>
+            <div class="manage-property">
+                <li><div class="message-btn"><a href="404-m.html"><i class="fa-solid fa-message"></i></a>
+                    </div></li>
+                <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
+                    </div></li> 
+            </div>
+        </div>
+        `;
+        propertyList.appendChild(propertyItem);
+    }
 }
 
 //Upcoming 

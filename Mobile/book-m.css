@@ -311,7 +311,7 @@ a {
     border-radius: 25px;
 }
 
-.f-search, .f-listings, .f-inbox, .f-profile{
+.f-search, .f-bookings, .f-inbox, .f-profile{
     margin-top: 20px;
     display: grid;
     text-align: center;
@@ -331,4 +331,105 @@ a {
 
 .footer .ft{
     margin-top: 5px;
+}
+
+
+/* Date Picker */
+
+.c-container{
+    display: flex;
+    justify-content: center;
+}
+
+#dates-when{
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+#date-range{
+    text-decoration: none;
+}
+
+.calendar-container{
+    z-index: 99;
+    font-size: 18px;
+    margin: 0;
+    position: fixed;
+    max-width: 330px;
+}
+
+
+.datepicker-container {
+    box-shadow: 5px 5px 9px rgba(94,104,121,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.calendar div {
+    padding: 5px;
+    background: #f0f0f0;
+    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.05), 
+    inset 1px 1px 3px rgba(94,104,121,0.15); 
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.calendar div:hover {
+    background-color: #e0e0e0;
+}
+
+.calendar div.selected {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.range {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.start,
+.calendar div.end {
+    background-color: #ff395c;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.calendar div.today {
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.calendar div.today.start,
+.calendar div.today.end {
+    border: none;
+    background-color: #ff395c; 
+    color: white;
+}
+
+.datepicker-container .controls button{
+    background-color: transparent;
 }
