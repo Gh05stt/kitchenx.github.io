@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
+    const reviewMask = document.querySelector('.reviews-mask');
+    
     populatePendingListings('pendingList');
     populateUpcomingListings('upcomingList');
     populatePastListings('pastList');
@@ -43,28 +45,6 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
     
-
-    // Confirm button functionality
-    document.querySelector('.c-mask .confirmBtn').addEventListener('click', function() {
-        if (currentlyEditingItem) {
-            const selectedDays = Array.from(document.querySelectorAll('.c-mask .day-c.selected')).map(d => d.dataset.day).join(',');
-            const newPrice = document.querySelector('.c-mask input[name="price"]').value;
-
-            currentlyEditingItem.dataset.availability = selectedDays;
-            currentlyEditingItem.dataset.price = `$${newPrice} daily`;
-
-            updatePropertyItemDisplay(currentlyEditingItem, selectedDays, `$${newPrice} daily`);
-
-            document.querySelector('.c-mask').style.display = 'none';
-            currentlyEditingItem = null; 
-        }
-    });
-
-    //Cancel button
-    document.querySelector('.c-mask .cancelBtn').addEventListener('click', function() {
-        document.querySelector('.c-mask').style.display = 'none';
-    });
-
     //Reviews
 
     //Open Review Container
@@ -87,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     //Calendar visibility
     const closeBtn = document.querySelector('.closeBtn');
-    const calendarConfirmBtn = document.querySelector('.confirmBtn-c')
+    const calendarConfirmBtn = document.querySelector('.confirmBtn-c');
     const calendarMask = document.querySelector('.calendar-mask');
     const editBtns = document.querySelectorAll('.upcoming-btn a'); 
 
@@ -122,9 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    const reviewMask = document.querySelector('.reviews-mask');
     function toggleReviewVisibility() {
-        const reviewMask = document.querySelector('.reviews-mask');
         if (reviewMask.style.visibility === 'hidden' || reviewMask.classList.contains('hidden')) {
             reviewMask.classList.remove('hidden');
             reviewMask.style.visibility = 'visible';

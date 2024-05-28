@@ -373,3 +373,90 @@ a {
 .footer .ft{
     margin-top: 5px;
 }
+
+
+/* Leave Review */
+.reviews-mask {
+    width: 420px;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    background: rgb(255, 255, 255);
+    top: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    visibility: visible;
+}
+
+.reviews-mask.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.reviews-mask p {
+    text-align: center;
+    font-size: 34px;
+}
+
+.review-container {
+    z-index: 99;
+    font-size: 18px;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.review-input {
+    width: 300px;
+    height: 300px;
+    border-radius: 45px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.review-input textarea {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    resize: none; 
+    box-sizing: border-box; 
+    padding: 10px;
+    font-size: 18px;
+    font-family: inherit;
+}
+
+.review-buttons {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review-buttons a {
+    border-radius: 25px;
+    padding: 10px;
+    color: #fff;
+}
+
+.review-buttons .confirmBtn-r {
+    background-color: #ff6e86;
+    transition: all 0.2s ease-in-out;
+    margin-left: 15px;
+}
+
+.review-buttons .closeBtn-r {
+    background-color: #787878;
+    transition: all 0.2s ease-in-out;
+}
+
+.review-buttons .confirmBtn-r:hover {
+    background-color: #ff395c;
+}
+
+.review-buttons .closeBtn-r:hover {
+    background-color: #5d5d5d;
+}

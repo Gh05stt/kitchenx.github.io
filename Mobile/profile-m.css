@@ -77,11 +77,16 @@ a {
 .nav-bar .nav-title p {
     font-size: 38px;
     margin: 0;
-    transform: translateX(-32px);
+    transform: translateX(-15px);
 }
 
 .nav-bar .search {
     margin-top: 10px;
+}
+
+.nav-bar .logout{
+    margin-top: 20px;
+    text-decoration: underline;
 }
 
 /* Content */
