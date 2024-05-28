@@ -38,3 +38,7 @@ p{
 #logout-content a:hover{
     color: #adadad;
 }
+
+.ui-selector a{
+    text-decoration: underline;
+}
