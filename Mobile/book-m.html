@@ -13,15 +13,6 @@
     <!--Phone barriers-->
     <div class="screen-container">
         <div class="phone-screen">
-            <!--Splash Screen -->
-            <!--<div id="splash-screen">
-                <div id="splash-content">
-                    <img src="../Images/KitchenX Logo.png" alt="Logo">
-                    <p id="splash-text">Sharpening the Processors</p>
-                </div>
-            </div>
-            <script src="../splash.js"></script> -->
-
             <div class="nav-bar">
                 <div class="logo">
                     <a href="book-m.html"><img src="../Images/KitchenX Logo.png" alt="Logo"></a>
@@ -30,10 +21,26 @@
                     <p id="nav-title-text">Book</p>
                 </div>
                 <div class="search">
-                    <button type="button" class="search-icon" id="search-button"><img src="../Images/search-icon.png" alt="Search"></button>
-                    <input type="text" id="search-bar" class="hidden" placeholder="Search...">
+                    <div class="search-container">
+                        <button type="button" class="search-icon" id="search-button"><img src="../Images/search-icon.png" alt="Search"></button>
+                        <input type="text" id="search-bar" class="hidden" placeholder="Search...">
+                    </div>
                 </div>
             </div>
+
+            <div class="facility-container">
+                <p>Facility Type:</p>
+                <select id="facility-type">
+                    <option value="">All Types</option>
+                    <option value="Bakery_Kitchen">Bakery Kitchen</option>
+                    <option value="Ice_Cream_Parlor">Ice Cream Parlor</option>
+                    <option value="Pizzeria_Kitchen">Pizzeria Kitchen</option>
+                    <option value="Restaurant_Kitchen">Restaurant Kitchen</option>
+                    <option value="Catering_Kitchen">Catering Kitchen</option>
+                    <option value="Fast_Food_Kitchen">Fast Food Kitchen</option>
+                </select>
+            </div>
+
             <div class="filter-by">
                 <p>Sort by:</p>
                 <select name="sortPrice" id="sortPrice">
@@ -45,9 +52,7 @@
                 </select>
               </div>
 
-            <div id="item-container">
-
-            </div>
+            <div id="item-container"></div>
 
             <div class="footer">
                 <div class="f-search">

@@ -188,6 +188,18 @@ a {
     top: 12vh;
 }
 
+.facility-container{
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.facility-container select{
+    border: none;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
 /* Filter */
 
 /* Sort by */

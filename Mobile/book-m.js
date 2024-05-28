@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+//    const datesInput = document.getElementById('dates-input');
+//    const calendarContainer = document.querySelector('.calendar-container');
+
+    
+    
     const itemContainer = document.getElementById('item-container');
+    const typeSelect = document.getElementById('facility-type');
+    const searchForm = document.querySelector('.search-container');
+    const searchInput = document.getElementById('search-bar');
     let allItems = [];
   
     const searchButton = document.getElementById('search-button');
@@ -14,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchBar.focus();
         }
     });
-
+  
     function loadAllItems() {
         const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
         const locations = [
@@ -27,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Whangaparaoa'
       ];
         types.forEach(type => {
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 12; i++) {
                 const randomLocation = locations[Math.floor(Math.random() * locations.length)];
                 const name = `${randomLocation}, Auckland`;
                 const rating = getRandomRating();
@@ -43,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         item.className = 'item';
         item.innerHTML = `
-            <a href="view-m.html"><div class="image-placeholder" id="transition" style="background-image: url('../Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div></a>
-            <div class="item-name"><a href="view-m.html">${name}</a></div>
+            <a href="view-facility.html"><div class="image-placeholder" id="transition" style="background-image: url('../Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div></a>
+            <div class="item-name"><a href="view-facility.html">${name}</a></div>
             <div class="item-rating">${rating} ★</div>
             <div class="item-price">${price}</div>
         `;
@@ -52,29 +60,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function displayItems(selectedType = '', searchTerm = '') {
-        itemContainer.innerHTML = '';
-        allItems.forEach(item => {
-            const matchesType = selectedType === '' || item.type === selectedType;
-            const matchesSearch = searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase());
-            if (matchesType && matchesSearch) {
-                itemContainer.appendChild(item.element);
-            }
-        });
-    }
+      itemContainer.innerHTML = '';
+      allItems.forEach(item => {
+          const matchesType = selectedType === '' || item.type === selectedType;
+          const matchesSearch = searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase());
+          if (matchesType && matchesSearch) {
+              itemContainer.appendChild(item.element);
+          }
+      });
+  }
   
-    loadAllItems();
-    displayItems(); 
+  loadAllItems();
+  displayItems(); 
   
-    searchBar.addEventListener('input', () => {
-        displayItems('', searchBar.value);
+  typeSelect.addEventListener('change', () => {
+    const selectedType = typeSelect.value.replace(/ /g, "_");
+      displayItems(selectedType, searchInput.value);
+  });
+  
+  
+  searchInput.addEventListener('input', () => {
+        const selectedType = typeSelect.value.replace(/ /g, "_");
+        const searchTerm = searchInput.value;
+        displayItems(selectedType, searchTerm);
     });
 
-    function getRandomRating() {
-        return (Math.random() * (5 - 1) + 1).toFixed(1);
-    }
+  function getRandomRating() {
+    return (Math.random() * (5 - 1) + 1).toFixed(1);
+  }
   
-    function getRandomPrice() {
-        const price = Math.floor(Math.random() * 900) + 100;
-        return `$${price} daily`;
-    }
+  function getRandomPrice() {
+    const price = Math.floor(Math.random() * 900) + 100;
+    return `$${price} daily`;
+  }
 });
