@@ -117,6 +117,42 @@ a {
     margin-top: 10px;
 }
 
+.hidden {
+    display: none;
+}
+
+#search-bar {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 2;
+    background-color: white;
+    transition: all 0.2s ease;
+}
+
+.search-icon.active + #search-bar {
+    display: block;
+    background-color: #f0f0f0;
+    border-radius: 45px;
+    border: none;
+    padding: 20px;
+    top: 55px;
+}
+
+.nav-bar {
+    position: relative;
+}
+
+.nav-title p.hidden {
+    visibility: hidden;
+}
+
 .search-icon img {
     background: transparent;
     padding-top: 5px;
@@ -133,6 +169,8 @@ a {
     cursor: pointer;
     margin-left: -10px;
     transition: all 0.2s ease-in-out;
+    position: relative;
+    z-index: 3;
 }
 
 
@@ -150,6 +188,27 @@ a {
     top: 12vh;
 }
 
+/* Filter */
+
+/* Sort by */
+.filter-by{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.filter-by select{
+    text-decoration: underline;
+    padding-left: 5px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-by select:hover{
+    cursor: pointer;
+}
+
 
 /* Listings */
 
@@ -161,6 +220,7 @@ a {
     width: 90%;
     margin: 0px auto;
     min-height: 60vh;
+    margin-bottom: 100px;
 }
   
 .item {

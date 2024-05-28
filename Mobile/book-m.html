@@ -27,12 +27,23 @@
                     <a href="book-m.html"><img src="../Images/KitchenX Logo.png" alt="Logo"></a>
                 </div>
                 <div class="nav-title">
-                    <p>Book</p>
+                    <p id="nav-title-text">Book</p>
                 </div>
                 <div class="search">
-                    <button type="submit" class="search-icon"><img src="../Images/search-icon.png" alt="Search"></button> 
+                    <button type="button" class="search-icon" id="search-button"><img src="../Images/search-icon.png" alt="Search"></button>
+                    <input type="text" id="search-bar" class="hidden" placeholder="Search...">
                 </div>
             </div>
+            <div class="filter-by">
+                <p>Sort by:</p>
+                <select name="sortPrice" id="sortPrice">
+                    <option value="relevance">Relevance</option>
+                    <option value="low-to-high">Price: Low to High</option>
+                    <option value="high-to-low">Price: High to Low</option>
+                    <option value="highest-review">Reviews: High to Low</option>
+                    <option value="lowest-review">Reviews: Low to To High</option> 
+                </select>
+              </div>
 
             <div id="item-container">
 
@@ -60,6 +71,7 @@
         </div>
     </div>
 
+    <script src="../sort.js"></script>
     <script src="book-m.js"></script>
 </body>
 </html>

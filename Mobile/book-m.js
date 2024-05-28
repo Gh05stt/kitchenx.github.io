@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const datesInput = document.getElementById('dates-input');
-
     const itemContainer = document.getElementById('item-container');
     let allItems = [];
   
-  
+    const searchButton = document.getElementById('search-button');
+    const searchBar = document.getElementById('search-bar');
+    const navTitleText = document.getElementById('nav-title-text');
+
+    searchButton.addEventListener('click', () => {
+        searchBar.classList.toggle('hidden');
+        searchButton.classList.toggle('active');
+        navTitleText.classList.toggle('hidden');
+        if (!searchBar.classList.contains('hidden')) {
+            searchBar.focus();
+        }
+    });
+
     function loadAllItems() {
         const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
         const locations = [
@@ -42,39 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function displayItems(selectedType = '', searchTerm = '') {
-      itemContainer.innerHTML = '';
-      allItems.forEach(item => {
-          const matchesType = selectedType === '' || item.type === selectedType;
-          const matchesSearch = searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase());
-          if (matchesType && matchesSearch) {
-              itemContainer.appendChild(item.element);
-          }
-      });
-  }
+        itemContainer.innerHTML = '';
+        allItems.forEach(item => {
+            const matchesType = selectedType === '' || item.type === selectedType;
+            const matchesSearch = searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase());
+            if (matchesType && matchesSearch) {
+                itemContainer.appendChild(item.element);
+            }
+        });
+    }
   
-  loadAllItems();
-  displayItems(); 
+    loadAllItems();
+    displayItems(); 
   
-  typeSelect.addEventListener('change', () => {
-      displayItems(typeSelect.value.replace(/ /g, "_"), searchInput.value);
-  });
-  
-    const searchForm = document.querySelector('.search-bar');
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault(); 
-        const selectedType = typeSelect.value.replace(/ /g, "_");
-        const searchTerm = searchInput.value;
-        displayItems(selectedType, searchTerm);
+    searchBar.addEventListener('input', () => {
+        displayItems('', searchBar.value);
     });
-  });
-  
-  
-  function getRandomRating() {
-    return (Math.random() * (5 - 1) + 1).toFixed(1);
-  }
-  
-  function getRandomPrice() {
-    const price = Math.floor(Math.random() * 900) + 100;
-    return `$${price} daily`;
-  }
 
+    function getRandomRating() {
+        return (Math.random() * (5 - 1) + 1).toFixed(1);
+    }
+  
+    function getRandomPrice() {
+        const price = Math.floor(Math.random() * 900) + 100;
+        return `$${price} daily`;
+    }
+});
