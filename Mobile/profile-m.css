@@ -50,49 +50,15 @@ a {
     color: #000;
 }
 
-/* Splash Screen */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
-
-#splash-content {
-    text-align: center;
-}
-
-#splash-content img {
-    max-width: 500px;
-    height: auto;
-    animation: fadeIn 1s ease-in-out;
-}
-
-#splash-text {
-    font-size: 20px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* Nav bar */
+
 .nav-bar {
     padding: 20px;
     display: flex;
     justify-content: space-between;
     max-width: 100%;
     max-height: 10vh;
+    padding-bottom: 0;
 }
 
 .nav-bar .logo img {
@@ -105,100 +71,97 @@ a {
     text-align: center;
     margin-top: 10px;
     flex-grow: 2;
+    width: 100%;
 }
 
 .nav-bar .nav-title p {
     font-size: 38px;
     margin: 0;
-    transform: translateX(-10px);
+    transform: translateX(-32px);
 }
 
 .nav-bar .search {
     margin-top: 10px;
 }
 
-.search-icon img {
-    background: transparent;
-    padding-top: 5px;
-    max-width: 25px;
-    height: auto;
+/* Content */
+
+.main{
+    margin: 20px;
+    margin-top: 0;
 }
 
-.search button {
-    border: 0;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: #ff6e86;
-    cursor: pointer;
-    margin-left: -10px;
-    transition: all 0.2s ease-in-out;
-}
-
-
-/* Bar under Nav */
-.nav-bar::after {
-    content: '';
-    display: block;
-    height: 2px; 
-    background-color: #d1d1d1; 
-    position: absolute;
-    bottom: 0; 
-    left: 10px; 
-    right: 10px; 
-    border-radius: 25px;
-    top: 12vh;
-}
-
-
-/* Listings */
-
-#item-container {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px; 
-    width: 90%;
-    margin: 0px auto;
-    min-height: 60vh;
-}
-  
-.item {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border: none;
-}
-  
-.item-name {
-    margin-top: 10px;
-    font-size: 22px;
-    color: #000;
-}
-  
-.item-rating {
-    margin-top: 5px;
-    color: #000;
-}
-  
-.item-price {
-    margin-top: 5px;
-    color: #737373;
-    font-size: 16px;
-}
-
-.image-placeholder {
-    height: 15px;
+.p-header{
+    margin-top: 20px;
     width: 100%;
-    padding-top: 100%;
-    background-color: #f0f0f0;
-    border-radius: 25px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    max-height: 500px;
+    display: block;
+}
+
+.p-pic-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-pic{
+    width:120px;
+    height: 120px;
+    background: #d1d1d1;
+    border-radius: 50%;
+}
+
+.p-initial{
+    font-size: 72px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.p-header h1{
+    text-align: center;
+    font-weight: 400;
+}
+
+/* User Info */
+.profile-form {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form label {
+    display: block;
+    margin: 15px 0 5px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.profile-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6e86;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
+
 
 /* Footer */
 
@@ -239,7 +202,7 @@ a {
     border-radius: 25px;
 }
 
-.f-search, .f-listings, .f-inbox, .f-profile{
+.f-profile, .f-security, .f-notifications, .f-reviews{
     margin-top: 20px;
     display: grid;
     text-align: center;
@@ -260,3 +223,4 @@ a {
 .footer .ft{
     margin-top: 5px;
 }
+

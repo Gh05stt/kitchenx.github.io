@@ -50,49 +50,15 @@ a {
     color: #000;
 }
 
-/* Splash Screen */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
-
-#splash-content {
-    text-align: center;
-}
-
-#splash-content img {
-    max-width: 500px;
-    height: auto;
-    animation: fadeIn 1s ease-in-out;
-}
-
-#splash-text {
-    font-size: 20px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* Nav bar */
+
 .nav-bar {
     padding: 20px;
     display: flex;
     justify-content: space-between;
     max-width: 100%;
     max-height: 10vh;
+    padding-bottom: 0;
 }
 
 .nav-bar .logo img {
@@ -105,100 +71,19 @@ a {
     text-align: center;
     margin-top: 10px;
     flex-grow: 2;
+    width: 100%;
 }
 
 .nav-bar .nav-title p {
     font-size: 38px;
     margin: 0;
-    transform: translateX(-10px);
+    transform: translateX(-32px);
 }
 
 .nav-bar .search {
     margin-top: 10px;
 }
 
-.search-icon img {
-    background: transparent;
-    padding-top: 5px;
-    max-width: 25px;
-    height: auto;
-}
-
-.search button {
-    border: 0;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: #ff6e86;
-    cursor: pointer;
-    margin-left: -10px;
-    transition: all 0.2s ease-in-out;
-}
-
-
-/* Bar under Nav */
-.nav-bar::after {
-    content: '';
-    display: block;
-    height: 2px; 
-    background-color: #d1d1d1; 
-    position: absolute;
-    bottom: 0; 
-    left: 10px; 
-    right: 10px; 
-    border-radius: 25px;
-    top: 12vh;
-}
-
-
-/* Listings */
-
-#item-container {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px; 
-    width: 90%;
-    margin: 0px auto;
-    min-height: 60vh;
-}
-  
-.item {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border: none;
-}
-  
-.item-name {
-    margin-top: 10px;
-    font-size: 22px;
-    color: #000;
-}
-  
-.item-rating {
-    margin-top: 5px;
-    color: #000;
-}
-  
-.item-price {
-    margin-top: 5px;
-    color: #737373;
-    font-size: 16px;
-}
-
-.image-placeholder {
-    height: 15px;
-    width: 100%;
-    padding-top: 100%;
-    background-color: #f0f0f0;
-    border-radius: 25px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.2s ease-in-out;
-}
 
 /* Footer */
 
@@ -239,7 +124,7 @@ a {
     border-radius: 25px;
 }
 
-.f-search, .f-listings, .f-inbox, .f-profile{
+.f-profile, .f-security, .f-notifications, .f-reviews{
     margin-top: 20px;
     display: grid;
     text-align: center;
@@ -259,4 +144,99 @@ a {
 
 .footer .ft{
     margin-top: 5px;
+}
+
+
+.main{
+    margin: 20px;
+}
+
+
+.notifs-form {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notifs-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.notifs-form ul {
+    padding: 0;
+}
+
+.notifs-form li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Sliders */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ff6e86;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff6e86;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

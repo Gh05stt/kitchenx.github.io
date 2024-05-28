@@ -136,8 +136,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 
-
-
 //Random Days
 function updateSelectedDays() {
     const selectedDays = Array.from(document.querySelectorAll('.day.selected')).map(d => d.dataset.day);
@@ -192,7 +190,6 @@ if (propertyItems.length === 0) {
     noBookingsMessage.remove();
 }
 }
-
 
 function getRandomDates() {
     const start = new Date();

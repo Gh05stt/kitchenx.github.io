@@ -22,8 +22,38 @@
                 </div>
             </div>
 
-        <!--Upcoming-->
 
+            <!--Change mask-->
+            <div class="c-mask hidden">
+                <!-- Day Selector -->
+                <div class="day-title">
+                    <p>Change Availability</p>
+                </div>
+                <div class="day-change-container">
+                    <div class="day-c" data-day="Monday"><p>Mon</p></div>
+                    <div class="day-c" data-day="Tuesday"><p>Tue</p></div>
+                    <div class="day-c" data-day="Wednesday"><p>Wed</p></div>
+                    <div class="day-c" data-day="Thursday"><p>Thu</p></div>
+                    <div class="day-c" data-day="Friday"><p>Fri</p></div>
+                    <div class="day-c" data-day="Saturday"><p>Sat</p></div>
+                    <div class="day-c" data-day="Sunday"><p>Sun</p></div>
+                </div>
+                
+                <!--Price change-->
+                <div class="price-selector">
+                    <h1>Select price</h1>
+                    <div class="price-input-container">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" placeholder="Enter daily price" name="price">
+                    </div>
+                    <div class="publish-confirm-buttons">
+                        <a class="cancelBtn">Back</a>
+                        <a class="confirmBtn">Confirm</a>
+                    </div>
+                </div>
+            </div>
+
+        <!--Facilities-->
         <div class="property-columns">
             <!--Pending-->
             <div class="property-column">
@@ -58,7 +88,25 @@
                 <div class="property-wrapper" id="pastList"></div>
             </div>
         </div>
-
+        
+        <div class="footer">
+            <div class="f-search">
+                <a href="book-m.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a class="ft" href="book-m.html">Search</a>
+            </div>
+            <div class="f-listings">
+                <a href="listings-m.html"><i class="fa-regular fa-calendar"></i></a>
+                <a class="ft" href="listings-m.html">Listings</a>
+            </div>
+            <div class="f-inbox">
+                <a href="404-m.html"><i class="fa-regular fa-message"></i></a>
+                <a class="ft" href="404-m.html">Inbox</a>
+            </div>
+            <div class="f-profile">
+                <a href="profile-m.html"><i class="fa-regular fa-user"></i></a>
+                <a class="ft" href="profile-m.html">Profile</a>
+            </div>
+        </div>
     <!--END OF SCREEN-->
     </div></div>
     <script src="listings-m.js"></script>
