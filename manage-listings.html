@@ -40,16 +40,21 @@
         <div class="day-title">
             <p>Change Availability</p>
         </div>
-        <div class="day-change-container">
-            <div class="day-c" data-day="Monday"><p>Mon</p></div>
-            <div class="day-c" data-day="Tuesday"><p>Tue</p></div>
-            <div class="day-c" data-day="Wednesday"><p>Wed</p></div>
-            <div class="day-c" data-day="Thursday"><p>Thu</p></div>
-            <div class="day-c" data-day="Friday"><p>Fri</p></div>
-            <div class="day-c" data-day="Saturday"><p>Sat</p></div>
-            <div class="day-c" data-day="Sunday"><p>Sun</p></div>
+        
+        <div class="calendar-container">
+            <div class="datepicker-container">
+                <div class="controls">
+                    <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="monthYear"></span>
+                    <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div id="datepicker" class="calendar"></div>
+            </div>
         </div>
         
+        <!-- Hidden input to store selected dates -->
+        <input type="hidden" id="dates-input" name="dates" />
+    
         <!--Price change-->
         <div class="price-selector">
             <h1>Select price</h1>
@@ -63,6 +68,7 @@
             </div>
         </div>
     </div>
+    
 
     <!--Reviews-->
     <div class="reviews-mask" style="visibility: hidden;">
@@ -75,25 +81,6 @@
             <div class="review-buttons">
                 <a class="closeBtn-r">Cancel</a>
                 <a class="confirmBtn-r">Confirm</a>
-            </div>
-        </div>
-    </div>
-    <!--Change dates-->
-
-    <div class="calendar-mask" style="visibility: hidden;">
-        <p>Change Booking Dates</p>
-        <div class="calendar-container">
-            <div class="datepicker-container">
-                <div class="controls">
-                    <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span id="monthYear"></span>
-                    <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-                <div id="datepicker" class="calendar"></div>
-                <div class="calendar-buttons">
-                    <a href="#" class="confirmBtn-c">Confirm</a>
-                    <a href="#" class="closeBtn">Cancel</a>
-                </div>
             </div>
         </div>
     </div>

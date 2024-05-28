@@ -557,50 +557,13 @@ a {
     width: 100%;
     height: 100%;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.99);
     z-index: 999;
     text-align: center;
     font-size: 34px;
     top: 0;
 }
 
-.day-change-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.day-c {
-    height: 75px;
-    width: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
-    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), 
-                inset 1px 1px 3px rgba(94, 104, 121, 0.15); 
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.day-c p {
-    margin: 0;
-    font-size: 18px;
-}
-
-.day-c.selected {
-    background-color: #ff395c;
-    color: white;
-}
-
-.day-c:hover{
-    background-color: #f990a1;
-    color: #fff;
-}
 
 /* Price Change*/
 
@@ -611,6 +574,7 @@ a {
 }
 
 .price-selector{
+    margin-top: 380px;
     display: grid;
     justify-content: space-around;
 }
@@ -947,5 +911,3 @@ button {
 .review-buttons .closeBtn-r:hover {
     background-color: #5d5d5d;
 }
-
-/* Availability Calendar */

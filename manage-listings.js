@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateNoBookingsMessage();
 
     let currentlyEditingItem = null; 
-
+    
     document.addEventListener('click', function(event) {
         if (event.target.closest('.edit-btn a')) {
             event.preventDefault();
@@ -15,62 +15,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
             currentlyEditingItem = propertyItem;
 
-            const availability = propertyItem.dataset.availability ? propertyItem.dataset.availability.split(',') : [];
-            const price = propertyItem.dataset.price ? propertyItem.dataset.price.replace(/^\$/, '') : '';
+            const availability = propertyItem.dataset.availability ? propertyItem.dataset.availability : '';
+            let price = propertyItem.dataset.price ? propertyItem.dataset.price.replace(/^\$/, '').replace(' daily', '') : '';
 
-            document.querySelectorAll('.c-mask .day-c').forEach(day => {
-                day.classList.remove('selected');
-                if (availability.includes(day.dataset.day)) {
-                    day.classList.add('selected');
-                }
-            });
+            //Doesnt work all the time, pray it works when they mark
+            price = Math.min(Number(price), 700);
 
             document.querySelector('.c-mask input[name="price"]').value = price;
+            document.getElementById('dates-input').value = availability;
+
+            // Pre-select dates on the calendar
+            if (availability) {
+                const [start, end] = availability.split(' - ').map(dateStr => new Date(dateStr));
+                selectedDates.start = start;
+                selectedDates.end = end;
+                renderCalendar(currentMonth, currentYear);
+            }
+
             document.querySelector('.c-mask').style.display = 'block';
         }
-
-        if (event.target.closest('.day-c')) {
-            event.target.closest('.day-c').classList.toggle('selected');
-        }
     });
-
-    //Approval / Deny requests
-    document.querySelectorAll('.approve-btn a, .deny-btn a').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            const outcome = this.getAttribute('data-action'); 
-            const propertyItem = this.closest('.property-item');
-            if (outcome && propertyItem) {
-                removePending(propertyItem, outcome);
-            }
-        });
-    });
-    
 
     // Confirm button functionality
     document.querySelector('.c-mask .confirmBtn').addEventListener('click', function() {
         if (currentlyEditingItem) {
-            const selectedDays = Array.from(document.querySelectorAll('.c-mask .day-c.selected')).map(d => d.dataset.day).join(',');
-            const newPrice = document.querySelector('.c-mask input[name="price"]').value;
-
-            currentlyEditingItem.dataset.availability = selectedDays;
-            currentlyEditingItem.dataset.price = `$${newPrice} daily`;
-
-            updatePropertyItemDisplay(currentlyEditingItem, selectedDays, `$${newPrice} daily`);
-
+            const newDates = document.getElementById('dates-input').value;
+            const priceInput = document.querySelector('.c-mask input[name="price"]');
+            const newPrice = priceInput.value;
+    
+            currentlyEditingItem.dataset.availability = newDates;
+    
+            let displayPrice = currentlyEditingItem.dataset.price;
+            
+    
+            updatePropertyItemDisplay(currentlyEditingItem, newDates, displayPrice);
+    
             document.querySelector('.c-mask').style.display = 'none';
             currentlyEditingItem = null; 
         }
     });
+    
+    
+    
 
-    //Cancel button
+    // Cancel button
     document.querySelector('.c-mask .cancelBtn').addEventListener('click', function() {
         document.querySelector('.c-mask').style.display = 'none';
     });
 
-    //Reviews
+    // Reviews
 
-    //Open Review Container
+    // Open Review Container
     document.querySelectorAll('.review-btn').forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
@@ -78,17 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    //Post Review
+    // Post Review
     document.querySelector('.reviews-mask .confirmBtn-r').addEventListener('click', function() {
         document.querySelector('.reviews-mask').style.visibility = 'hidden';
     });
 
-    //Cancel Review
+    // Cancel Review
     document.querySelector('.reviews-mask .closeBtn-r').addEventListener('click', function() {
         document.querySelector('.reviews-mask').style.visibility = 'hidden';
     });
 
-    //Calendar visibility
+    // Calendar visibility
     const closeBtn = document.querySelector('.closeBtn');
     const calendarConfirmBtn = document.querySelector('.confirmBtn-c')
     const calendarMask = document.querySelector('.calendar-mask');
@@ -127,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const reviewMask = document.querySelector('.reviews-mask');
     function toggleReviewVisibility() {
-        const reviewMask = document.querySelector('.reviews-mask');
         if (reviewMask.style.visibility === 'hidden' || reviewMask.classList.contains('hidden')) {
             reviewMask.classList.remove('hidden');
             reviewMask.style.visibility = 'visible';
@@ -138,23 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function updatePropertyItemDisplay(item, days, price) {
-    const dayContainer = item.querySelector('.day-selector-container');
+function updatePropertyItemDisplay(item, dates, price) {
     const priceDisplay = item.querySelector('.item-price');
-    
-    Array.from(dayContainer.querySelectorAll('.day')).forEach(day => {
-        if (days.includes(day.dataset.day)) {
-            day.classList.add('selected');
-        } else {
-            day.classList.remove('selected');
-        }
-    });
+    const datesDisplay = item.querySelector('.item-availability');
 
-    priceDisplay.textContent = price;
+    if (priceDisplay) {
+        priceDisplay.textContent = price;
+    }
 
-};
+    if (datesDisplay && dates) {
+        datesDisplay.textContent = `Dates: ${dates}`;
+    }
+}
 
-//Random Days
+// Random Days
 function updateSelectedDays() {
     const selectedDays = Array.from(document.querySelectorAll('.day.selected')).map(d => d.dataset.day);
 }
@@ -180,7 +171,7 @@ function removePropertyItem(element) {
     return false; 
 }
 
-function removePending(element,outcome) {
+function removePending(element, outcome) {
     if (confirm(`Are you sure you want to ${outcome} this booking?`)) {
         element.closest('.property-item').remove();
         updateNoBookingsMessage();
@@ -189,24 +180,24 @@ function removePending(element,outcome) {
 }
 
 function updateNoBookingsMessage() {
-const noBookingsMessageId = 'noBookingsMessage';
-let noBookingsMessage = document.getElementById(noBookingsMessageId);
-const propertyItems = document.querySelectorAll('.property-item');
+    const noBookingsMessageId = 'noBookingsMessage';
+    let noBookingsMessage = document.getElementById(noBookingsMessageId);
+    const propertyItems = document.querySelectorAll('.property-item');
 
-if (propertyItems.length === 0) {
-    if (!noBookingsMessage) {
-        noBookingsMessage = document.createElement('p');
-        noBookingsMessage.id = noBookingsMessageId;
-        noBookingsMessage.textContent = "No facilities listed";
-        noBookingsMessage.style.textAlign = "center";
-        noBookingsMessage.style.marginTop = "20px";
-        noBookingsMessage.style.fontSize = "20px";
-        noBookingsMessage.style.color = "#6a6a6a";
-        propertyList.appendChild(noBookingsMessage);
+    if (propertyItems.length === 0) {
+        if (!noBookingsMessage) {
+            noBookingsMessage = document.createElement('p');
+            noBookingsMessage.id = noBookingsMessageId;
+            noBookingsMessage.textContent = "No facilities listed";
+            noBookingsMessage.style.textAlign = "center";
+            noBookingsMessage.style.marginTop = "20px";
+            noBookingsMessage.style.fontSize = "20px";
+            noBookingsMessage.style.color = "#6a6a6a";
+            document.getElementById('currentList').appendChild(noBookingsMessage);
+        }
+    } else if (noBookingsMessage) {
+        noBookingsMessage.remove();
     }
-} else if (noBookingsMessage) {
-    noBookingsMessage.remove();
-}
 }
 
 function getRandomDates() {
@@ -214,10 +205,6 @@ function getRandomDates() {
     start.setDate(start.getDate() + Math.floor(Math.random() * 30)); 
     const end = new Date(start);
     end.setDate(start.getDate() + Math.floor(Math.random() * 7) + 1); 
-
-    const formatDate = (date) => {
-        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    };
 
     return `${formatDate(start)} - ${formatDate(end)}`;
 }
@@ -227,12 +214,12 @@ function getRandomPastDates() {
     start.setDate(start.getDate() - Math.floor(Math.random() * 30 + 1));
     const end = new Date(start); 
 
-
-    const formatDate = (date) => {
-        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    };
-
     return `${formatDate(end)} - ${formatDate(start)}`;
+}
+
+function formatDate(date) {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
 }
 
 function getRandomRating() {
@@ -244,9 +231,9 @@ function getRandomPrice() {
     return `$${price} daily`;
 }
 
-//Auto populate
+// Auto populate
 
-//Currently Listed
+// Currently Listed
 function populateCurrentListings(listId) {
     const propertyList = document.getElementById(listId);
     const minProperties = 1;
@@ -259,20 +246,12 @@ function populateCurrentListings(listId) {
         const kitchenType = types[randomTypeIndex];
         const imagePath = `Images/Facilities/${kitchenType.replace(/ /g, '_')}/`;
         const imageNumber = Math.floor(Math.random() * 7) + 1;
-        const randomDays = getRandomDays();
+        const randomDates = getRandomDates();
 
         const propertyItem = document.createElement('div');
         propertyItem.className = 'property-item';
-        propertyItem.dataset.availability = randomDays.join(','); 
+        propertyItem.dataset.availability = randomDates; 
         propertyItem.dataset.price = `$${Math.floor(Math.random() * 2000) + 500} daily`;
-
-        let daysHtml = '';
-        const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        allDays.forEach(day => {
-            const isSelected = randomDays.includes(day) ? 'selected' : '';
-            const dayShort = day.substring(0, 3); 
-            daysHtml += `<div class="day ${isSelected}" data-day="${day}"><p>${dayShort}</p></div>`;
-        });
 
         propertyItem.innerHTML = `
             <div class="property-details">
@@ -281,9 +260,7 @@ function populateCurrentListings(listId) {
                     <p class="item-location"><span>${getLocation()}, Auckland</span></p>
                     <p class="item-rating">★ ${getRandomRating()}</p>
                     <p class="item-price">${getRandomPrice()}</p>
-                    <div class="day-selector-container">
-                        ${daysHtml}
-                    </div>
+                    <p class="item-availability">Dates: ${randomDates}</p>
                 </div>
             <div class="manage-property">
                 <li><div class="edit-btn"><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -297,15 +274,13 @@ function populateCurrentListings(listId) {
     }
 }
 
-
-//Pending Approval
+// Pending Approval
 function populatePendingListings(listId) {
     const propertyList = document.getElementById(listId);
     const minProperties = 2;
     const maxProperties = 3;
     const types = ["Bakery Kitchen", "Ice Cream Parlor", "Pizzeria Kitchen", "Restaurant Kitchen", "Catering Kitchen", "Fast Food Kitchen"];
     const numProperties = Math.floor(Math.random() * (maxProperties - minProperties + 1)) + minProperties;
-      
 
     for (let i = 0; i < numProperties; i++) {
         const randomTypeIndex = Math.floor(Math.random() * types.length);
@@ -352,11 +327,11 @@ function getRandomName() {
     const names = [
         "Baljot Toor", "Harry Chhay", "Aaron Mendonca",
         "Krishant Maharaj", "Caleb Simmons", "Chuanze Zhao"
-      ];
+    ];
     return names[Math.floor(Math.random() * names.length)];
 }
 
-//Upcoming 
+// Upcoming 
 function populateUpcomingListings(listId) {
     const propertyList = document.getElementById(listId);
     const minProperties = 1;
@@ -385,8 +360,6 @@ function populateUpcomingListings(listId) {
                 </div>
             </div>
             <div class="manage-property">
-                <!-- <li><div class="upcoming-btn"><a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <span class="upcoming-tip">Edit Booking</span></div></li> -->
                 <li><div class="message-btn"><a href="404.html"><i class="fa-solid fa-message"></i></a>
                     <span class="message-tip">Message Tenant</span></div></li>
                 <li><div class="trash-btn"><a href="#" onclick="removePropertyItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
@@ -398,8 +371,7 @@ function populateUpcomingListings(listId) {
     }
 }
 
-
-//Completed
+// Completed
 function populatePastListings(listId) {
     const propertyList = document.getElementById(listId);
     const minProperties = 1;
@@ -441,18 +413,13 @@ function populatePastListings(listId) {
     }
 }
 
-
-
 function getRandomDays() {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const selectedDays = days.filter(() => Math.random() < 0.5);
     return selectedDays;
 }
 
-
-
-//Date picker
-
+// Date picker
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 let selectedDates = { start: null, end: null };
@@ -512,31 +479,30 @@ function changeMonth(change) {
 }
 
 function selectDate(date) {
-  if (!selectedDates.start || (selectedDates.start && selectedDates.end)) {
-      selectedDates.start = date;
-      selectedDates.end = null;
-  } else if (selectedDates.start && !selectedDates.end) {
-      if (date >= selectedDates.start) {
-          selectedDates.end = date;
-      } else {
-          selectedDates.end = selectedDates.start;
-          selectedDates.start = date;
-      }
-  }
-  renderCalendar(currentMonth, currentYear);
-  updateDateInput();
+    if (!selectedDates.start || (selectedDates.start && selectedDates.end)) {
+        selectedDates.start = date;
+        selectedDates.end = null;
+    } else if (selectedDates.start && !selectedDates.end) {
+        if (date >= selectedDates.start) {
+            selectedDates.end = date;
+        } else {
+            selectedDates.end = selectedDates.start;
+            selectedDates.start = date;
+        }
+    }
+    renderCalendar(currentMonth, currentYear);
+    updateDateInput();
 }
 
 
-
 function updateDateInput() {
-  const datesInput = document.getElementById('dates-input');
-  if (selectedDates.start) {
-      datesInput.value = selectedDates.start.toLocaleDateString();
-      if (selectedDates.end) {
-          datesInput.value += ' - ' + selectedDates.end.toLocaleDateString();
-      }
-  }
+    const datesInput = document.getElementById('dates-input');
+    if (datesInput && selectedDates.start) {
+        datesInput.value = formatDate(selectedDates.start);
+        if (selectedDates.end) {
+            datesInput.value += ' - ' + formatDate(selectedDates.end);
+        }
+    }
 }
 
 function isDateInRange(date) {
