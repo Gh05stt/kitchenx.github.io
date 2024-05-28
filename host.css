@@ -463,37 +463,88 @@ a {
     font-size: 52px;
 }
 
-.day-selector-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* Date Picker */
+
+.calendar-container{
+    z-index: 99;
+    font-size: 18px;
+    margin-top: 0px;
+    top: 380px;
 }
 
-.day {
-    height: 75px;
-    width: 75px;
+
+.datepicker-container {
+    box-shadow: 5px 5px 9px rgba(94,104,121,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f6f6f6;
+}
+
+.controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.calendar div {
+    padding: 10px;
     background: #f0f0f0;
-    box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.05), 
-                inset 1px 1px 3px rgba(94, 104, 121, 0.15); 
+    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.05), 
+    inset 1px 1px 3px rgba(94,104,121,0.15); 
     text-align: center;
-    border-radius: 50%;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
-.day p {
-    margin: 0;
-    font-size: 20px;
+.calendar div:hover {
+    background-color: #e0e0e0;
 }
 
-.day.selected {
+.calendar div.selected {
     background-color: #ff6e86;
     color: white;
+}
+
+.calendar div.range {
+    background-color: #ff6e86;
+    color: white;
+}
+
+.calendar div.start,
+.calendar div.end {
+    background-color: #ff395c;
+    color: white;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.calendar div.today {
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.calendar div.today.start,
+.calendar div.today.end {
+    border: none;
+    background-color: #ff395c; 
+    color: white;
+}
+
+.datepicker-container .controls button{
+    background-color: transparent;
 }
 
 .publish-confirm-buttons {
@@ -574,6 +625,7 @@ a {
 .price-selector{
     display: grid;
     justify-content: space-around;
+    margin-top: 400px;
 }
 
 .price-selector input{
@@ -734,7 +786,7 @@ a {
 .input-group label {
     font-size: 14px;
     font-weight: 400;
-    color: black;
+    color: #000;
     margin-bottom: 5px; 
 }
 
@@ -743,12 +795,13 @@ a {
     border: none;
     text-align: left;
     vertical-align: top;
-    padding: 10px; /* Adjust as needed for proper spacing */
-    box-sizing: border-box; /* Include padding in the height calculation */
-    resize: vertical; /* Allow vertical resizing */
-    overflow: auto; /* Ensure scrollbar appears when needed */
-    min-height: 290px; /* Minimum height */
+    padding: 10px; 
+    box-sizing: border-box;
+    resize: vertical;
+    overflow: auto;
+    min-height: 290px;
 }
+
 
 /* Description container */
 .description-container .input-group{
@@ -787,4 +840,94 @@ a {
     min-height: 90px;
     background-color: transparent;
     border: none;
+}
+
+/* Flexbox container to align input groups */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the items */
+}
+
+/* Dropdown CSS */
+.input-group {
+    flex: 1; /* Flex 1 to equally distribute the space */
+    padding: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropbtn {
+    background-color: #f0f0f0;
+    color: black;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    border-radius: 5px;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+    display: block; /* Ensure it behaves like a block-level element */
+    max-height: 50px; /* Set a max height */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 100%;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-content label {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content label:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Additional input-group styling */
+.input-group label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 30px;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    color: #666;
+}
+
+.amenities-container{
+    width: 95%;
+    height: auto; /* Adjust height to auto */
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 20px;
 }

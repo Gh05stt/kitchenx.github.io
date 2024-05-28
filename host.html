@@ -57,7 +57,7 @@
                 <div class="details-container-c">
                     <div class="price">
                         <h2>Price</h2>
-                        <p class="final-price">$1,900 daily</p>
+                        <p class="final-price">$500 daily</p>
                     </div>
                     <div class="description">
                         <h2>Description</h2>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="availability">
                         <h2>Days Available</h2>
-                        <div class="day-selector-container"></div>
+                        <p id="dates-input"></p>
                     </div>
                 </div>
             </div>
@@ -98,14 +98,15 @@
     <div class="calendar-mask hidden" style="visibility: hidden;">
         <div class="calendar-c1">
             <h1>Select Available Days</h1>
-            <div class="day-selector-container">
-                <div class="day" data-day="Monday"><p>Mon</p></div>
-                <div class="day" data-day="Tuesday"><p>Tue</p></div>
-                <div class="day" data-day="Wednesday"><p>Wed</p></div>
-                <div class="day" data-day="Thursday"><p>Thur</p></div>
-                <div class="day" data-day="Friday"><p>Fri</p></div>
-                <div class="day" data-day="Saturday"><p>Sat</p></div>
-                <div class="day" data-day="Sunday"><p>Sun</p></div>
+            <div class="calendar-container">
+                <div class="datepicker-container">
+                    <div class="controls">
+                        <button type="button" id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                        <span id="monthYear"></span>
+                        <button type="button" id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div id="datepicker" class="calendar"></div>
+                </div>
             </div>
         </div>
         <div class="price-selector">
@@ -144,7 +145,8 @@
                             <option value="Catering Kitchen">Catering Kitchen</option>
                             <option value="Fast Food Kitchen">Fast Food Kitchen</option>
                         </select>                        
-                    </div>            
+                    </div>         
+                                   
             </div>
 
             <div class="description-container">
@@ -153,11 +155,21 @@
                         <label>Description</label>
                         <textarea name="description" rows="4"></textarea>
                     </div>
-                    <div class="amenities-group">
-                        <label>Amenities</label>
-                        <textarea name="amenities" rows="2"></textarea>
-                    </div>
                 </form>
+            </div>
+
+            <div class="amenities-container">
+                <label>Amenities</label>
+                <div class="dropdown">
+                    <button class="dropbtn">Select Amenities</button>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" name="amenities" value="Oven"> Oven</label>
+                        <label><input type="checkbox" name="amenities" value="Parking"> Parking</label>
+                        <label><input type="checkbox" name="amenities" value="Food processors"> Food processors</label>
+                        <label><input type="checkbox" name="amenities" value="Walk-in freezer"> Walk-in freezer</label>
+                        <label><input type="checkbox" name="amenities" value="Dough press"> Dough press</label>
+                    </div>
+                </div>
             </div>
         </div>
 

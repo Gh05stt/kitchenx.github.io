@@ -6,15 +6,20 @@
     <title>KitchenX</title>
     <link rel="icon" type="image/x-icon" href="Images/KitchenX Logo.png">
     <link rel="stylesheet" href="landing.css">
+    <script>
+        function setRole(role) {
+            localStorage.setItem('userRole', role);
+        }
+    </script>
 </head>
 <body>
     <div class="welcome-header">
         <img src="Images/Logo_Invert.png" alt="">
     </div>
     <div class="welcome-text">
-        <p>Choose your Platform</p>
-        <a class="desktopBtn" href="book.html">Desktop</a>
-        <a class="mobileBtn" href="user-select.html">Mobile</a>
+        <p>Choose your user</p>
+        <a class="desktopBtn" href="Mobile/listings-m.html" onclick="setRole('host')">Host</a>
+        <a class="mobileBtn" href="Mobile/book-m.html" onclick="setRole('tenant')">Tenant</a>
     </div>
 </body>
 </html>

@@ -326,6 +326,7 @@ function populatePendingListings(listId) {
                     <p class="item-dates"><span>Dates:</span> ${getRandomDates()}</p>
                 </div>
             </div>
+            
             <div class="manage-property">
                 <li>
                 <div class="approve-btn"><a href="#" data-action="approve"><i class="fa-solid fa-check"></i></a>
