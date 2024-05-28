@@ -226,7 +226,7 @@ function updateTotal() {
   const discountCode = document.getElementById('discountCode').value;
   let discount = 0;
   if (discountCode) {
-    discount = 1500;
+    discount = 200;
   }
   document.getElementById('discount-price').textContent = `$${discount.toLocaleString()}`;
 

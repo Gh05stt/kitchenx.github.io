@@ -259,6 +259,7 @@ a {
 .delete-btn {
     position: relative;
     display: inline-block;
+    top: 15px;
 }
   
 .delete-btn .delete-tip{

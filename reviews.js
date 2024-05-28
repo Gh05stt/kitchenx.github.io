@@ -58,8 +58,6 @@ function populatePastReviews(listId) {
                 <p class="item-content-r">Review: ${getRandomReviewContent()}</p>
             </div>
             <div class="manage-review">
-            <li><div class="edit-btn"><a><i class="fa-solid fa-pen-to-square"></i></i></a>
-                <span class="edit-tip">Edit Review</span></div></li>
                 <li><div class="delete-btn"><a href="#" onclick="removeReviewItem(this); return false;"><i class="fa-solid fa-trash"></i></a>
                     <span class="delete-tip">Remove Review</span></div></li> 
             </div>
