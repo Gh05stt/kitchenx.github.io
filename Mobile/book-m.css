@@ -217,11 +217,6 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
-.filter-by select:hover{
-    cursor: pointer;
-}
-
-
 /* Listings */
 
 #item-container {
@@ -389,10 +384,6 @@ a {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-}
-
-.calendar div:hover {
-    background-color: #e0e0e0;
 }
 
 .calendar div.selected {

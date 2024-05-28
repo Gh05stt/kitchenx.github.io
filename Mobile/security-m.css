@@ -192,20 +192,12 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
-.profile-form input[type="submit"]:hover {
-    background-color: #ff4e66;
-}
-
 .profile-form a{
     margin-left: 10px;
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-}
-
-.profile-form a:hover{
-    color: #ff6e86;
 }
 
 .profile-form li{

@@ -186,10 +186,6 @@ a {
     border-top-right-radius: 10px;
 }
 
-.property-item a:hover {
-    cursor: pointer;
-}
-
 .property-description {
     flex-grow: 1; 
     padding: 10px;
@@ -451,12 +447,4 @@ a {
 .review-buttons .closeBtn-r {
     background-color: #787878;
     transition: all 0.2s ease-in-out;
-}
-
-.review-buttons .confirmBtn-r:hover {
-    background-color: #ff395c;
-}
-
-.review-buttons .closeBtn-r:hover {
-    background-color: #5d5d5d;
 }

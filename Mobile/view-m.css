@@ -412,10 +412,6 @@ button {
     color: #fff;
 }
 
-.submit-button:hover {
-    background-color: #ff395c; 
-}
-
 .cancel-button {
     height: 50px;
     background-color: #787878;
@@ -427,10 +423,6 @@ button {
     transition: background-color 0.3s;
     width: 40%;
     font-size: 16px;
-}
-
-.cancel-button:hover {
-    background-color: #6a6a6a; 
 }
 
 .pricing-group{
