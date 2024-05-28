@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         item.className = 'item';
         item.innerHTML = `
-            <a href="view-facility.html"><div class="image-placeholder" id="transition" style="background-image: url('../Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div></a>
-            <div class="item-name"><a href="view-facility.html">${name}</a></div>
+            <a href="view-m.html"><div class="image-placeholder" id="transition" style="background-image: url('../Images/Facilities/${type}/${randomImageNumber}.jpeg');"></div></a>
+            <div class="item-name"><a href="view-m.html">${name}</a></div>
             <div class="item-rating">${rating} ★</div>
             <div class="item-price">${price}</div>
         `;
