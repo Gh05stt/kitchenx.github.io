@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     proceedBtn.addEventListener('click', function (event) {
         event.preventDefault();
+        updateConfirmContent();
         toggleCalendarVisibility();
     });
 
@@ -133,7 +134,29 @@ document.addEventListener("DOMContentLoaded", function () {
         contentSection.style.display = show ? '' : 'none';
         footerSection.style.display = show ? '' : 'none';
     }
+
+    // Add the following function to update confirmation content
+    function updateConfirmContent() {
+        const descriptionTextarea = document.querySelector('.description-text');
+        const confirmDescription = document.querySelector('.confirm-publish .description p');
+        
+        const amenitiesCheckboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+        const confirmAmenities = document.querySelector('.confirm-publish .amenities p');
+
+        if (descriptionTextarea && confirmDescription) {
+            confirmDescription.textContent = descriptionTextarea.value;
+        }
+
+        if (amenitiesCheckboxes && confirmAmenities) {
+            const selectedAmenities = Array.from(amenitiesCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value)
+                .join(', ');
+            confirmAmenities.textContent = selectedAmenities || 'No amenities selected';
+        }
+    }
 });
+
 
 
 //Calendar
