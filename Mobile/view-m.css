@@ -58,12 +58,33 @@ a {
     justify-content: center;
     max-width: 100%;
     max-height: 10vh;
+    padding-bottom: 0;
 }
 
 .nav-bar .logo img {
     max-width: 75px;
     max-height: 75px;
     flex-grow: 0;
+}
+
+.below-nav{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.below-nav i {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.below-nav .back{
+    background-color: rgb(0, 0, 0, 0.15);
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    text-align: center;
 }
 
 /* Content */
@@ -109,7 +130,7 @@ a {
     height: 2px;
     background-color: #d1d1d1;
     position: absolute;
-    bottom: 27vh;
+    bottom: 24vh;
     left: 10px; 
     right: 10px; 
     border-radius: 25px;
